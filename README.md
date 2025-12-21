@@ -42,9 +42,9 @@ Developed by an independent Software Architect at LemonScript, the R\&D laborato
 
 ## **🤝 Collaboration \& Licensing**
 
-This project is licensed under the MIT License - see the \[LICENSE](LICENSE) file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
 
-For business inquiries, Pro Compiler access, or research partnerships, please refer to \[CONTACT.md](CONTACT.md).
+For business inquiries, Pro Compiler access, or research partnerships, please refer to [CONTACT.md](CONTACT.md).
 
 
 *Verified by MetaSpace Pro. Mathematics is the ultimate firewall.*
