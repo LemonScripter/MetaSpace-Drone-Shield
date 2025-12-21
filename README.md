@@ -6,46 +6,43 @@
 
 Unlike traditional probabilistic or AI-based models, MetaSpace treats security as a mathematical constraint.
 
-* **Zero-Trust Navigation:** Real-time cross-verification of GPS data against Trusted Inertial Sensors (INS).
-* **Shield Engaged Logic:** Immediate, deterministic isolation of compromised data streams.
+* **Zero-Trust Navigation:** Real-time cross-verification of GPS data against Trusted Inertial Sensors (INS).  
+* **Shield Engaged Protocol:** Immediate, deterministic isolation of compromised data streams upon invariant violation.  
 * **Logic-as-Hardware:** Specifications compiled directly to FPGA gate-level logic, immune to OS-level exploits.
 
 ## **🚀 Quick Start**
 
-### **1. Installation**
+### **1\. Installation**
 
-Ensure you have Python 3.8+ installed:  
-pip install -r requirements.txt
+pip install \-r requirements.txt
 
-### **2. Launch Mission Control**
+### **2\. Launch Simulation Server**
 
-Run the tactical simulation server. This will open a local monitor window and start a telemetry broadcaster:  
+Run the tactical simulation to start the telemetry broadcaster:  
 python examples/spoofing\_simulation.py
 
-### **3. Open Dashboard**
+### **3\. Open Mission Control**
 
-Open index.html in your browser to access the **MetaSpace Mission Control Dashboard** for real-time visual analysis.
+Open **index.html** in your browser to access the real-time visual analysis suite.
 
-## **📦 Repository Structure**
+## **📊 Simulation & Results**
 
-* src/compiler/: Lexical analysis for .bio specifications.
-* src/verification/: Interface for the MetaSpace Formal Verification Engine.
-* examples/: Mission scenarios and Dual-Attack simulation models.
-* docs/: Technical architecture and IP protection strategy.
+For a detailed analysis of detection performance and the autonomous fallback logic, please refer to:
 
-## **🧪 About LemonScript R\&D**
+* [Autonomous Fallback Analysis](https://www.google.com/search?q=docs/autonomous_fallback.md)  
+* [Technical Architecture](https://www.google.com/search?q=docs/architecture.md)
 
-Developed by an independent Software Architect at LemonScript, the R\&D laboratory of Citrom Méda LTD, our work focuses on bridging abstract philosophy with rigorous engineering. The MetaSpace framework ensures every system is mathematically verified and architecturally sound by design. 
-*Official Site:* [metaspace.bio](https://biological-code.netlify.app) (Hungarian) 
+*Figure 1: Real-time detection of a GPS "pull-away" attack. The system triggers a **Shield Engaged** state upon detection.*
 
+## **🧪 About the Project**
 
+Developed by an independent Software Architect at **LemonScript**, the R\&D laboratory of **Citrom Méda LTD**, our work focuses on bridging abstract philosophy with rigorous engineering. The MetaSpace framework ensures every system is mathematically verified and architecturally sound by design.  
+**Official Site:** [metaspace.bio](https://www.google.com/search?q=https://biological-code.netlify.app)
 
-## **🤝 Collaboration \& Licensing**
+## **🤝 Collaboration & Licensing**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. 
-
-For business inquiries, Pro Compiler access, or research partnerships, please refer to [CONTACT.md](CONTACT.md).
-
+This project is licensed under the MIT License \- see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details.  
+Proprietary FPGA synthesis engines and Pro Compiler access are managed by **Citrom Méda LTD**.  
+For business inquiries or research partnerships, please refer to the [CONTACT.md](https://www.google.com/search?q=CONTACT.md) guide.
 
 *Verified by MetaSpace Pro. Mathematics is the ultimate firewall.*
-
