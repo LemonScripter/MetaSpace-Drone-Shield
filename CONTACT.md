@@ -25,7 +25,7 @@ MetaSpace is a solo-founded innovation with a proven TRL 3/4 baseline. We are lo
 
 ## **📧 Contact Channels**
 
-* **Official Website:** [https://metaspace.bio](https://www.google.com/search?q=https://metaspace.bio)  
+* **Official Website:** [https://metaspace.bio](https://https://metaspace.bio)  
 * **LinkedIn:** [Independent Software Architect & R\&D Lead](https://www.linkedin.com/in/szokelaci/)  
 * **Email:** lszoke@gmail.com
 
