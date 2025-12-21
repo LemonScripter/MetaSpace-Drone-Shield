@@ -29,8 +29,8 @@ Open **index.html** in your browser to access the real-time visual analysis suit
 
 For a detailed analysis of detection performance and the autonomous fallback logic, please refer to:
 
-* [Autonomous Fallback Analysis](https://docs/autonomous_fallback.md)  
-* [Technical Architecture](https://docs/architecture.md)
+* [Autonomous Fallback Analysis](docs/autonomous_fallback.md)  
+* [Technical Architecture](docs/architecture.md)
 
 *Figure 1: Real-time detection of a GPS "pull-away" attack. The system triggers a **Shield Engaged** state upon detection.*
 
