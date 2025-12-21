@@ -34,6 +34,8 @@ For a detailed analysis of detection performance and the autonomous fallback log
 
 *Figure 1: Real-time detection of a GPS "pull-away" attack. The system triggers a **Shield Engaged** state upon detection.*
 
+![Simulation Results](Figure_1.png)
+
 ## **🧪 About the Project**
 
 Developed by an independent Software Architect at **LemonScript**, the R\&D laboratory of **Citrom Méda LTD**, our work focuses on bridging abstract philosophy with rigorous engineering. The MetaSpace framework ensures every system is mathematically verified and architecturally sound by design.  
