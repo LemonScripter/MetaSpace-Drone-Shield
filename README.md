@@ -41,6 +41,10 @@ For a detailed analysis of detection performance and the autonomous fallback log
 Developed by an independent Software Architect at **LemonScript**, the R\&D laboratory of **Citrom Méda LTD**, our work focuses on bridging abstract philosophy with rigorous engineering. The MetaSpace framework ensures every system is mathematically verified and architecturally sound by design.  
 **Official Site:** [metaspace.bio](https://biological-code.netlify.app)
 
+## **🔐 Verification & Integrity**
+
+**SHA256:** `E5B24A5ECE7F1458E20368C5C3CF742831492B48B37D350DE589DA1A588FEE53`
+
 ## **🤝 Collaboration & Licensing**
 
 This project is licensed under the MIT License \- see the [LICENSE](LICENSE) file for details.  
