@@ -87,7 +87,7 @@
                 <div class="bg-slate-900/60 border border-slate-800 rounded-[2rem] p-8 h-48 flex flex-col shadow-xl">
                     <h2 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Security Audit Log</h2>
                     <div id="log-container" class="flex-1 overflow-y-auto space-y-2 text-[10px] mono text-slate-500 pr-2 custom-scrollbar">
-                        <div>> Syncing with MetaSpace engine on http://127.0.0.1:5000...</div>
+                        <div>> Syncing with MetaSpace engine...</div>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
 
         async function updateDashboard() {
             try {
-                const res = await fetch('http://127.0.0.1:5000/telemetry', { cache: 'no-cache' });
+                const res = await fetch('/telemetry', { cache: 'no-cache' });
                 const data = await res.json();
                 
                 document.getElementById('status-indicator').innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Online (Encrypted)';
