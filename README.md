@@ -53,7 +53,7 @@ Aligned with **DO-178C**, **DO-333**, and **IEC 61508**:
 
 ## **🔐 Verification & Integrity**
 
-SHA256 Fingerprint: E5B24A5ECE7F1458E20368C5C3CF742831492B48B37D350DE589DA1A588FEE53  
+SHA256 Fingerprint: 9a721f6436caacfbd73f4303aed7465b3f53609ffd2129c445279d9f5cdf9d16  
 Patent Reference: OSIM Nr. 20251221-2230
 
 *This project is developed at **LemonScript**, the R\&D laboratory of **Citrom Méda LTD**. Proprietary FPGA synthesis engines and Pro Compiler access are managed by the lead architect.*
