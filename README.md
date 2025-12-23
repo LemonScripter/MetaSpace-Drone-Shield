@@ -58,4 +58,6 @@ Patent Reference: OSIM Nr. 20251221-2230
 
 *This project is developed at **LemonScript**, the R\&D laboratory of **Citrom Méda LTD**. Proprietary FPGA synthesis engines and Pro Compiler access are managed by the lead architect.*
 
-**Official Documentation (HUNGARIAN):** [metaspace.bio](https://biological-code.netlify.app)
+**Official Documentation**:
+(EN): [metaspace.bio](https://lemonscripter.github.io/MetaSpace-Drone-Shield/)
+(HU): [metaspace.bio](https://biological-code.netlify.app)
