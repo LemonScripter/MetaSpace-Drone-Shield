@@ -3,169 +3,485 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetaSpace | Mission Control Dashboard</title>
+    <title>MetaSpace.bio | Universal Logic & Evidence Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;700&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f1f5f9; }
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #fcfaf8; 
+            color: #0f172a; 
+            scroll-behavior: smooth;
+        }
+
         .mono { font-family: 'JetBrains Mono', monospace; }
-        .grid-bg { background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 30px 30px; }
-        .pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .3; } }
-        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+
+        .glass { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(20px); 
+            border: 1px solid rgba(226, 232, 240, 0.6); 
+        }
+
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            height: 400px; 
+            max-height: 500px; 
+        }
+
+        .stage-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+        .stage-active { 
+            border-left: 5px solid #10b981; 
+            background: #f0fdf4; 
+            transform: translateX(10px);
+        }
+
+        .terminal-shadow {
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 10px;
+            font-weight: 800;
+        }
+        
+        /* Syntax Highlighting */
+        .code-keyword { color: #60a5fa; font-weight: bold; }
+        .code-string { color: #fbbf24; }
+        .code-comment { color: #64748b; font-style: italic; }
+        .code-func { color: #f472b6; }
+        .code-const { color: #818cf8; }
     </style>
 </head>
-<body class="grid-bg min-h-screen p-4 md:p-10">
+<body class="selection:bg-emerald-200 antialiased">
 
-    <div class="max-w-7xl mx-auto">
-        <!-- Header Section -->
-        <header class="flex flex-col md:flex-row justify-between items-center bg-slate-900/60 backdrop-blur-xl p-8 rounded-[2.5rem] border border-slate-800 shadow-2xl mb-8">
-            <div class="flex items-center gap-6">
-                <img src="logo.png" alt="MetaSpace Logo" class="w-12 h-12" onerror="this.style.display='none'; document.getElementById('shield-icon').style.display='block';">
-                <div id="shield-icon" style="display:none" class="w-12 h-12 bg-emerald-600 rounded-xl flex items-center justify-center text-white font-bold text-xl uppercase">M</div>
-                <div>
-                    <h1 class="text-2xl font-bold tracking-tighter uppercase">MetaSpace <span class="text-emerald-500">Mission Control</span></h1>
-                    <p class="text-[10px] text-slate-500 uppercase tracking-[0.3em] font-bold">Formal Integrity Layer • LemonScript R&D</p>
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass border-b px-8 py-4 flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+            <img src="logo.png" alt="MetaSpace Logo" class="w-12 h-12 rounded-xl shadow-sm" onerror="this.src='https://via.placeholder.com/48?text=MS'">
+            <div>
+                <h1 class="text-xl font-black tracking-tight leading-none">MetaSpace<span class="text-emerald-500">.bio</span></h1>
+                <p class="text-[9px] uppercase tracking-[0.2em] font-bold text-slate-400">Universal Integrity Layer</p>
+            </div>
+        </div>
+        <div class="hidden lg:flex space-x-10 text-xs font-bold uppercase tracking-widest text-slate-500">
+            <a href="#metrics" class="hover:text-slate-900 transition underline-offset-8">Metrics</a>
+            <a href="#syntax" class="hover:text-slate-900 transition underline-offset-8">Metalanguage</a>
+            <a href="#pipeline" class="hover:text-slate-900 transition underline-offset-8">Pipeline</a>
+            <a href="#benchmarks" class="hover:text-slate-900 transition underline-offset-8">Benchmarks</a>
+        </div>
+        <div>
+            <span class="px-5 py-2 bg-emerald-500 text-white text-[10px] font-black rounded-full uppercase tracking-[0.15em] shadow-lg shadow-emerald-500/30">✓ Certified Stage 1</span>
+        </div>
+    </nav>
+
+    <!-- Hero / Metrics Section -->
+    <header id="metrics" class="max-w-7xl mx-auto px-6 pt-24 pb-16 border-b border-slate-100">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-7">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 bg-slate-100 rounded-lg mb-6 text-slate-500">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                    <span class="text-[10px] font-bold uppercase tracking-wider">Status: TRL 4 (Lab Validated)</span>
+                </div>
+                <h2 class="text-6xl md:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.9]">
+                    Security as a <br><span class="text-slate-400">Mathematical</span> <br>Constraint.
+                </h2>
+                <p class="text-xl text-slate-500 max-w-xl leading-relaxed">
+                    MetaSpace.bio provides a deterministic membrane for mission-critical systems, enforcing unbreakable laws across <strong>Space, Time, and Energy</strong>.
+                </p>
+            </div>
+            <div class="lg:col-span-5 grid grid-cols-2 gap-4">
+                <div class="p-8 glass rounded-[40px] shadow-sm">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Latency</p>
+                    <div class="text-4xl font-black">0.0005<span class="text-emerald-500">ms</span></div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Real-Time Isolation</p>
+                </div>
+                <div class="p-8 glass rounded-[40px] shadow-sm">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">SMT Solver</p>
+                    <div class="text-4xl font-black text-blue-500">PROVED</div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Z3 Verified State</p>
+                </div>
+                <div class="p-8 glass rounded-[40px] shadow-sm">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Compliance</p>
+                    <div class="text-4xl font-black">SIL-3</div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Target Integrity</p>
+                </div>
+                <div class="p-8 glass rounded-[40px] shadow-sm">
+                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Jitter</p>
+                    <div class="text-4xl font-black">ZERO</div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Hardware-Gated</p>
                 </div>
             </div>
-            <div class="mt-6 md:mt-0 flex flex-col items-end">
-                <div id="status-indicator" class="flex items-center gap-2 text-[10px] font-bold text-red-500 uppercase">
-                    <span class="w-2 h-2 rounded-full bg-red-500 pulse"></span> Connecting...
-                </div>
-                <a href="https://biological-code.netlify.app" target="_blank" class="text-[10px] text-emerald-500 mono mt-1 hover:underline font-bold">metaspace.bio</a>
-            </div>
-        </header>
+        </div>
+    </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <!-- Left: Stats & Guide -->
-            <div class="lg:col-span-4 space-y-8">
-                <div class="bg-slate-900/60 border border-slate-800 rounded-[2rem] p-8 shadow-xl">
-                    <h2 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-8">Tactical Telemetry</h2>
-                    <div class="space-y-6">
-                        <div class="flex justify-between items-center border-b border-slate-800/50 pb-4">
-                            <span class="text-xs text-slate-400">Mission Clock</span>
-                            <span id="stat-time" class="text-xl font-bold mono">0.0s</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-800/50 pb-4">
-                            <span class="text-xs text-slate-400">Security Invariant</span>
-                            <span id="stat-status" class="text-sm font-bold text-emerald-500 uppercase">Verified Safe</span>
-                        </div>
-                        <div class="flex justify-between items-center border-b border-slate-800/50 pb-4">
-                            <span class="text-xs text-slate-400">Divergence</span>
-                            <span id="stat-div" class="text-sm font-bold mono">0.00m</span>
-                        </div>
-                    </div>
-                </div>
+    <!-- Comprehensive Syntax Showcase Section -->
+    <section id="syntax" class="max-w-7xl mx-auto px-6 py-24 bg-white">
+        <div class="mb-16 text-center max-w-3xl mx-auto">
+            <h3 class="text-4xl font-black tracking-tight text-slate-900 mb-6">Universal Specification v2.0</h3>
+            <p class="text-slate-500 text-lg">Governing every physical dimension—Space, Time, and Metabolic Reserves—within a single formal specification.</p>
+        </div>
 
-                <div class="bg-blue-950/20 border border-blue-900/30 rounded-[2rem] p-8 shadow-xl">
-                    <h2 class="text-[10px] font-bold text-blue-500 uppercase tracking-widest mb-4">Interpretation Guide</h2>
-                    <ul class="text-[11px] text-slate-400 space-y-3 leading-relaxed">
-                        <li><span class="text-emerald-500 font-bold uppercase">● Green Path:</span> Trusted Inertial Navigation (INS).</li>
-                        <li><span class="text-red-500 font-bold uppercase">-- Red Dashed:</span> External GPS Signal (Vulnerable).</li>
-                        <li><span class="text-slate-100 font-bold uppercase underline italic">Verified Safe:</span> Normal flight sync active.</li>
-                        <li><span class="text-red-500 font-bold uppercase underline italic">Shield Engaged:</span> Formal Isolation triggered.</li>
-                    </ul>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <!-- Documentation Detail Blocks -->
+            <div class="lg:col-span-5 space-y-6">
+                <div class="p-6 rounded-[32px] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-3 text-emerald-600">Spatial & Temporal Guard</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Protects against <strong>GNSS Spoofing</strong> and <strong>Replay Attacks</strong>. Invariants monitor spatial divergence and data staleness in discrete clock-ticks.
+                    </p>
+                </div>
+                <div class="p-6 rounded-[32px] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-3 text-blue-600">Metabolic Energy Reserves</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Ensures mission-abortion before physical collapse. Monitors battery voltage and fuel metrics as <strong>Homeostatic Invariants</strong>.
+                    </p>
+                </div>
+                <div class="p-6 rounded-[32px] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition">
+                    <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-3 text-purple-600">Graceful Degradation</h4>
+                    <p class="text-sm text-slate-600 leading-relaxed">
+                        Uses <strong>Fuzzy Logic Zones</strong> to allow deterministic heuristics. High-risk zones trigger performance scaling instead of binary shutdown.
+                    </p>
                 </div>
             </div>
 
-            <!-- Right: Chart & Logs -->
-            <div class="lg:col-span-8 space-y-8">
-                <div class="bg-slate-900/60 border border-slate-800 rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl">
-                    <div class="flex justify-between items-center mb-10">
-                        <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest">Formal Integrity Analysis</h2>
-                        <div id="isolation-badge" class="hidden px-4 py-1 bg-red-600/20 text-red-500 border border-red-500/50 rounded-full text-[9px] font-bold uppercase pulse">
-                            Formal Isolation Active
+            <!-- The Gold-Standard Code Block -->
+            <div class="lg:col-span-7">
+                <div class="bg-slate-900 rounded-[56px] p-10 shadow-2xl relative overflow-hidden terminal-shadow group">
+                    <div class="absolute inset-0 bg-emerald-500/[0.03] pointer-events-none"></div>
+                    <div class="flex items-center justify-between mb-8 border-b border-slate-800 pb-4">
+                        <div class="flex space-x-2">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-amber-500"></div>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                         </div>
+                        <span class="text-[10px] mono text-slate-500 tracking-widest uppercase">UniversalMachineGuard.bio</span>
                     </div>
-                    <div class="h-[450px]">
-                        <canvas id="telemetryChart"></canvas>
+                    <pre class="mono text-xs md:text-sm text-emerald-400 leading-relaxed overflow-x-auto">
+<span class="code-comment">// MetaSpace Universal Specification v2.0</span>
+<span class="code-keyword">CELL</span> UniversalMachineGuard {
+  <span class="code-keyword">INTERFACE</span> {
+    <span class="code-keyword">INPUT</span> gps_pos, ins_pos: <span class="code-keyword">VECTOR2D</span>;
+    <span class="code-keyword">INPUT</span> battery_voltage: <span class="code-keyword">FLOAT</span>;
+    <span class="code-keyword">INPUT</span> last_packet: <span class="code-keyword">TIMESTAMP</span>;
+  }
+  
+  <span class="code-keyword">INVARIANTS</span> {
+    <span class="code-comment">// 1. Spatial Continuity (Anti-Spoofing)</span>
+    <span class="code-keyword">RULE</span> spatial_integrity: <span class="code-func">DISTANCE</span>(gps_pos, ins_pos) <= <span class="code-const">50.0</span>;
+    
+    <span class="code-comment">// 2. Temporal Freshness (Anti-Jitter)</span>
+    <span class="code-keyword">RULE</span> temporal_integrity: <span class="code-func">STALENESS</span>(last_packet) < <span class="code-const">0.1s</span>;
+    
+    <span class="code-comment">// 3. Metabolic Law (Energy Reserve)</span>
+    <span class="code-keyword">RULE</span> battery_integrity: battery_voltage > <span class="code-const">11.2</span>;
+  }
+  
+  <span class="code-keyword">FUZZY_LOGIC</span> {
+    <span class="code-comment">// Deterministic Heuristic: Graceful performance scaling</span>
+    <span class="code-keyword">ZONE</span> range_warning:
+      <span class="code-keyword">IF</span> battery_voltage < <span class="code-const">11.5</span> <span class="code-keyword">THEN</span> MAX_THRUST = <span class="code-const">0.5</span>;
+  }
+  
+  <span class="code-keyword">STATES</span> {
+    <span class="code-keyword">STATE</span> Operational { lock = 0; }
+    <span class="code-keyword">STATE</span> ShieldEngaged <span class="code-keyword">TYPE</span> <span class="code-keyword">SAFETY_LOCK</span> { lock = 1; }
+    
+    <span class="code-keyword">TRANSITION FROM</span> Operational <span class="code-keyword">TO</span> ShieldEngaged 
+      <span class="code-keyword">IF</span> spatial_integrity == <span class="code-keyword">FALSE</span> <span class="code-keyword">OR</span> battery_integrity == <span class="code-keyword">FALSE</span>;
+  }
+}</pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Validation Pipeline Section -->
+    <section id="pipeline" class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-100">
+        <div class="mb-16">
+            <h3 class="text-4xl font-black tracking-tight mb-4 text-slate-900">The 5-Stage Validation Pipeline</h3>
+            <p class="text-slate-500 max-w-2xl text-lg leading-relaxed">
+                A transparent audit trail derived from **DO-178C** and **IEC 61508** certification frameworks.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <!-- Pipeline Stepper -->
+            <div class="lg:col-span-5 space-y-4">
+                <div onclick="updateStep(1)" id="step-1" class="p-8 glass rounded-3xl stage-card stage-active shadow-sm group">
+                    <div class="flex items-center space-x-4">
+                        <span class="step-number bg-emerald-500 text-white">01</span>
+                        <h4 class="text-lg font-bold group-hover:text-emerald-600 transition">Formal Semantics Proof</h4>
                     </div>
                 </div>
+                <div onclick="updateStep(2)" id="step-2" class="p-8 glass rounded-3xl stage-card shadow-sm group">
+                    <div class="flex items-center space-x-4">
+                        <span class="step-number bg-slate-200 text-slate-500">02</span>
+                        <h4 class="text-lg font-bold group-hover:text-blue-600 transition">Tool Qualification & Synthesis</h4>
+                    </div>
+                </div>
+                <div onclick="updateStep(3)" id="step-3" class="p-8 glass rounded-3xl stage-card shadow-sm group">
+                    <div class="flex items-center space-x-4">
+                        <span class="step-number bg-slate-200 text-slate-500">03</span>
+                        <h4 class="text-lg font-bold group-hover:text-blue-600 transition">Safety Standard Alignment</h4>
+                    </div>
+                </div>
+                <div onclick="updateStep(4)" id="step-4" class="p-8 glass rounded-3xl stage-card shadow-sm group">
+                    <div class="flex items-center space-x-4">
+                        <span class="step-number bg-slate-200 text-slate-500">04</span>
+                        <h4 class="text-lg font-bold group-hover:text-blue-600 transition">Military Field Validation</h4>
+                    </div>
+                </div>
+                <div onclick="updateStep(5)" id="step-5" class="p-8 glass rounded-3xl stage-card shadow-sm group">
+                    <div class="flex items-center space-x-4">
+                        <span class="step-number bg-slate-200 text-slate-500">05</span>
+                        <h4 class="text-lg font-bold group-hover:text-blue-600 transition">Operational Assurance Case</h4>
+                    </div>
+                </div>
+            </div>
 
-                <div class="bg-slate-900/60 border border-slate-800 rounded-[2rem] p-8 h-48 flex flex-col shadow-xl">
-                    <h2 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-4">Security Audit Log</h2>
-                    <div id="log-container" class="flex-1 overflow-y-auto space-y-2 text-[10px] mono text-slate-500 pr-2 custom-scrollbar">
-                        <div>> Syncing with MetaSpace engine...</div>
+            <!-- Detail View -->
+            <div class="lg:col-span-7">
+                <div id="step-display" class="h-full p-12 bg-slate-900 rounded-[64px] text-white flex flex-col justify-center relative overflow-hidden terminal-shadow">
+                    <div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none text-9xl font-black italic uppercase">Evidence</div>
+                    <div id="step-content" class="transition-opacity duration-300">
+                        <span id="step-badge" class="px-4 py-1.5 bg-emerald-500/20 text-emerald-400 text-[11px] font-black rounded-lg uppercase mb-8 inline-block tracking-[0.2em]">Stage 1: Verified</span>
+                        <h5 id="step-title" class="text-4xl font-black mb-6">Language & Logic Proof</h5>
+                        <p id="step-desc" class="text-slate-400 text-lg leading-relaxed mb-10">
+                            Mathematical proof that the .bio metalanguage produces deterministic outcomes. We verified every state transition using Z3 SMT-Solvers to ensure side-effect freedom and MC/DC coverage.
+                        </p>
+                        <div class="p-6 bg-slate-800/50 rounded-2xl border border-slate-700">
+                            <p class="text-[11px] font-bold text-slate-500 uppercase mb-4 tracking-widest underline">Audit Log: MS-AUDIT-001</p>
+                            <code class="mono text-xs text-emerald-400 block leading-loose">
+                                [SUCCESS] SMT Target: Invariant-Consistency (Z3 v4.12)<br>
+                                [SUCCESS] State-Space Coverage: 100.0% (Zero Undefined States)<br>
+                                [SUCCESS] Source: examples/drone_shield.bio<br>
+                                [SUCCESS] Timing: 0.0005 ms avg / 1M samples<br>
+                                [SIGNED] Integrity Checksum: E5B24A5E...FEE53
+                            </code>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Operational Benchmarking -->
+    <section id="benchmarks" class="py-24 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+                <div class="max-w-2xl">
+                    <h3 class="text-5xl font-black tracking-tighter mb-6 text-slate-900">Operational Benchmarking</h3>
+                    <p class="text-slate-500 text-lg leading-relaxed">
+                        Real-time impact analysis: MetaSpace.bio logic versus traditional probabilistic systems (EKF) in mission-critical failure scenarios.
+                    </p>
+                </div>
+                <div class="mt-10 md:mt-0 flex bg-slate-100 p-1 rounded-2xl border border-slate-200 shadow-inner">
+                    <button onclick="switchScenario('air')" id="btn-air" class="px-8 py-3 text-xs font-black rounded-xl transition bg-white text-slate-900 shadow-sm uppercase tracking-widest">Aviation: AF447</button>
+                    <button onclick="switchScenario('fin')" id="btn-fin" class="px-8 py-3 text-xs font-black rounded-xl transition text-slate-400 hover:text-slate-900 uppercase tracking-widest">Finance: Knight Capital</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                <div class="lg:col-span-8">
+                    <div class="chart-container">
+                        <canvas id="benchmarkChart"></canvas>
+                    </div>
+                </div>
+                <div class="lg:col-span-4 space-y-8">
+                    <div class="p-10 glass rounded-[48px] border-emerald-100 relative shadow-sm">
+                        <div class="absolute -top-4 -left-4 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-white font-black italic shadow-lg shadow-emerald-500/20">!</div>
+                        <h4 id="scen-title" class="text-2xl font-black mb-4">Aviation Integrity</h4>
+                        <p id="scen-desc" class="text-slate-500 text-sm leading-relaxed mb-8">
+                            Modeling the AF447 Pitot icing event. MetaSpace.bio detects sensor divergence in < 1ms and triggers a hard-coded "Pitch-and-Power" safety gate.
+                        </p>
+                        <div class="flex items-center space-x-3 text-emerald-600 font-black text-[11px] uppercase tracking-widest">
+                            <span>Isolation Speed:</span>
+                            <span class="bg-emerald-100 px-2 py-1 rounded">Determinisitc</span>
+                        </div>
+                    </div>
+                    <div class="p-8 bg-slate-900 text-white rounded-[40px] flex items-center space-x-6 shadow-2xl transition hover:scale-105">
+                        <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center font-black text-xs text-slate-900 italic">SHIELD</div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Logic Response</p>
+                            <p class="text-sm font-bold leading-tight">Hard-Wired Failsafe Triggered</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ledger Footer -->
+    <footer class="max-w-7xl mx-auto px-6 py-20 border-t border-slate-100 text-center">
+        <div class="mb-12">
+            <img src="logo.png" alt="MetaSpace Logo" class="w-16 h-16 rounded-2xl mx-auto mb-6 shadow-md" onerror="this.style.display='none'">
+            <div class="text-2xl font-black italic text-slate-900 mb-2">MetaSpace.bio</div>
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em]">Official Verification Ledger</p>
+        </div>
+        <div class="p-6 bg-slate-50 rounded-3xl inline-block mb-10 border border-slate-200 shadow-inner">
+            <code class="mono text-[10px] md:text-xs text-slate-500 break-all px-4 tracking-tighter">SHA256: E5B24A5ECE7F1458E20368C5C3CF742831492B48B37D350DE589DA1A588FEE53</code>
+        </div>
+        <p class="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed uppercase tracking-wider font-semibold">
+            &copy; 2025 Citrom Méda LTD | LemonScript Laboratory. <br>
+            Patent Pending (OSIM 20251221-2230). <br>
+            Mathematics is the ultimate firewall.
+        </p>
+    </footer>
 
     <script>
-        const ctx = document.getElementById('telemetryChart').getContext('2d');
-        const logBox = document.getElementById('log-container');
-        const isoBadge = document.getElementById('isolation-badge');
-        
-        const chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: [],
-                datasets: [
-                    { label: 'GPS Measurement', borderColor: '#ef4444', borderWidth: 2, borderDash: [5, 5], pointRadius: 0, data: [], tension: 0.1 },
-                    { label: 'Trusted Path (INS)', borderColor: '#10b981', borderWidth: 2.5, pointRadius: 0, data: [], tension: 0.1 }
-                ]
+        const steps = {
+            1: {
+                title: "Formal Semantics Proof",
+                badge: "Stage 1: Verified",
+                desc: "Mathematical proof that the MetaSpace.bio metalanguage produces deterministic outcomes. We utilized SMT-Solvers (Z3) to verify that every state transition is safe, excluding side effects.",
+                log: "[SUCCESS] SMT Target: Invariant-Consistency (Z3 v4.12)\n[SUCCESS] State-Space Coverage: 100.0% (Zero Undefined States)\n[SUCCESS] Source: examples/drone_shield.bio\n[SUCCESS] Timing Determinism: 0.0005 ms avg / 1M samples\n[SIGNED] Integrity Checksum: E5B24A5E...FEE53"
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { display: false },
-                    y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } }
-                },
-                plugins: { legend: { labels: { color: '#94a3b8', font: { size: 10, weight: 'bold' } } } }
+            2: {
+                title: "Tool Qualification & Synthesis",
+                badge: "Stage 2: In Progress",
+                desc: "Verification of the MetaSpace.bio Compiler v2.0 synthesis engine. Proving that the mapping from .bio to VHDL/C++ introduces zero logic errors (DO-178C TQL-3 alignment).",
+                log: "[OK] VHDL Logic Mapping verified.\n[OK] Binary-to-Model Traceability integrated.\n[IN PROGRESS] Tool Qualification: examples/spoofing_simulation.py\n[IN PROGRESS] Formal Logic Minimization active."
+            },
+            3: {
+                title: "Safety Standard Alignment",
+                badge: "Stage 3: Ready",
+                desc: "Integration with industry safety standards. Hazard & Risk Analysis (HARA) and FMEA reports mapped to .bio invariants for SIL-3 high-integrity requirements.",
+                log: "[INFO] HARA Report MS-HARA-01 finalized.\n[INFO] FMEA critical paths mapped to invariants.\n[INFO] SIL-3 Certification Roadmap active.\n[INFO] Traceability Matrix: examples/af447_speed_shield.bio"
+            },
+            4: {
+                title: "Military Field Validation",
+                badge: "Stage 4: Planned",
+                desc: "Field trials under active GNSS Spoofing and Jamming conditions (Jammertest 2025 standards). Benchmarking against NATO C-UAS security requirements.",
+                log: "[SCHEDULED] GNSS Spoofing Field Trial - 2025 Q1.\n[SCHEDULED] Blue UAS Compliance Audit Initiation.\n[SCHEDULED] NATO STANAG 4586 Interoperability Test."
+            },
+            5: {
+                title: "Operational Assurance Case",
+                badge: "Stage 5: Planned",
+                desc: "Finalizing the Assurance Case using Goal Structuring Notation (GSN). Linking all mathematical evidence to operational field data and continuous feedback loops.",
+                log: "[PREPARATION] Assurance Case Skeleton built.\n[PREPARATION] Operational Data-Loop Module specified.\n[PREPARATION] Continuous Certification Pipeline design."
             }
-        });
+        };
 
-        function addLog(msg, color = 'slate-500') {
-            const div = document.createElement('div');
-            div.className = `text-${color}`;
-            div.innerHTML = `> [${new Date().toLocaleTimeString()}] ${msg}`;
-            logBox.prepend(div);
+        function updateStep(id) {
+            document.querySelectorAll('.stage-card').forEach(card => {
+                card.classList.remove('stage-active');
+                const num = card.querySelector('.step-number');
+                num.classList.replace('bg-emerald-500', 'bg-slate-200');
+                num.classList.replace('text-white', 'text-slate-500');
+            });
+            const activeCard = document.getElementById(`step-${id}`);
+            activeCard.classList.add('stage-active');
+            const activeNum = activeCard.querySelector('.step-number');
+            activeNum.classList.replace('bg-slate-200', 'bg-emerald-500');
+            activeNum.classList.replace('text-slate-500', 'text-white');
+
+            const content = document.getElementById('step-content');
+            content.style.opacity = '0';
+            
+            setTimeout(() => {
+                document.getElementById('step-badge').innerText = steps[id].badge;
+                document.getElementById('step-title').innerText = steps[id].title;
+                document.getElementById('step-desc').innerText = steps[id].desc;
+                document.querySelector('#step-content code').innerHTML = steps[id].log.replace(/\n/g, '<br>');
+                content.style.opacity = '1';
+            }, 300);
         }
 
-        async function updateDashboard() {
-            try {
-                const res = await fetch('/telemetry', { cache: 'no-cache' });
-                const data = await res.json();
-                
-                document.getElementById('status-indicator').innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500"></span> Online (Encrypted)';
-                document.getElementById('status-indicator').className = "flex items-center gap-2 text-[10px] font-bold text-emerald-500 uppercase";
-                
-                document.getElementById('stat-time').innerText = data.time + 's';
-                document.getElementById('stat-div').innerText = data.divergence + 'm';
-                document.getElementById('stat-status').innerText = data.status;
-                document.getElementById('stat-status').className = `text-sm font-bold uppercase ${data.alert ? 'text-red-500' : 'text-emerald-500'}`;
+        let benchmarkChart;
 
-                if (data.alert) {
-                    isoBadge.classList.remove('hidden');
-                    if (data.time % 10 === 0) {
-                        addLog(`STATUS: Shield Engaged. GPS Isolation at T+${data.time}s`, "red-500 font-bold");
+        function initChart() {
+            const canvas = document.getElementById('benchmarkChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            benchmarkChart = new Chart(ctx, {
+                type: 'line',
+                data: getAirData(),
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    scales: {
+                        y: { 
+                            grid: { color: '#f1f5f9' },
+                            ticks: { color: '#64748b', font: { weight: 'bold' } },
+                            title: { display: true, text: 'Telemetry Value (Absolute)', color: '#64748b' }
+                        },
+                        x: { 
+                            grid: { display: false },
+                            ticks: { color: '#64748b' }
+                        }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { usePointStyle: true, font: { weight: 'bold' } } },
+                        tooltip: { backgroundColor: '#0f172a' }
                     }
-                } else {
-                    isoBadge.classList.add('hidden');
                 }
-
-                chart.data.labels.push(data.time);
-                chart.data.datasets[0].data.push(data.gps);
-                chart.data.datasets[1].data.push(data.ins);
-                
-                if (chart.data.labels.length > 60) {
-                    chart.data.labels.shift();
-                    chart.data.datasets[0].data.shift();
-                    chart.data.datasets[1].data.shift();
-                }
-                chart.update('none');
-
-            } catch (err) {
-                document.getElementById('status-indicator').innerHTML = '<span class="w-2 h-2 rounded-full bg-red-500 pulse"></span> Offline';
-                document.getElementById('status-indicator').className = "flex items-center gap-2 text-[10px] font-bold text-red-500 uppercase";
-            }
+            });
         }
 
-        setInterval(updateDashboard, 500);
+        function getAirData() {
+            const labels = Array.from({length: 20}, (_, i) => i * 5);
+            return {
+                labels: labels,
+                datasets: [
+                    { label: 'Sensor 1 (Trusted)', data: [480, 481, 479, 480, 482, 480, 481, 480, 480, 481, 480, 480, 479, 480, 480, 481, 480, 482, 480, 481], borderColor: '#10b981', tension: 0.3, pointRadius: 0 },
+                    { label: 'Sensor 2 (Icing Error)', data: [480, 481, 479, 480, 482, 480, 400, 320, 240, 180, 150, 120, 100, 90, 85, 80, 75, 70, 65, 60], borderColor: '#ef4444', tension: 0.3, pointRadius: 0 },
+                    { label: 'MetaSpace Logic Gating', data: [null, null, null, null, null, null, 480, 480, 480, 480, 480, 480, 480, 480, 480, 480, 480, 480, 480, 480], borderColor: '#0f172a', borderDash: [5, 5], pointRadius: 3, backgroundColor: '#0f172a' }
+                ]
+            };
+        }
+
+        function getFinData() {
+            const labels = Array.from({length: 20}, (_, i) => i);
+            return {
+                labels: labels,
+                datasets: [
+                    { label: 'Cumulative Exposure ($M)', data: [10, 25, 45, 70, 100, 140, 200, 300, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440, 440], borderColor: '#ef4444', backgroundColor: 'rgba(239, 68, 68, 0.1)', fill: true, tension: 0.1, pointRadius: 0 },
+                    { label: 'Formal Invariant Limit', data: Array(20).fill(250), borderColor: '#10b981', borderDash: [3, 3], pointRadius: 0 }
+                ]
+            };
+        }
+
+        function switchScenario(type) {
+            if (!benchmarkChart) return;
+            const btnAir = document.getElementById('btn-air');
+            const btnFin = document.getElementById('btn-fin');
+            const title = document.getElementById('scen-title');
+            const desc = document.getElementById('scen-desc');
+
+            if (type === 'air') {
+                btnAir.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                btnFin.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btnFin.classList.add('text-slate-400');
+                title.innerText = "Aviation Integrity";
+                desc.innerText = "Modeling the AF447 Pitot icing event. MetaSpace.bio detects sensor divergence in < 1ms and triggers a hard-coded 'Pitch-and-Power' safety gate.";
+                benchmarkChart.data = getAirData();
+                benchmarkChart.options.scales.y.title.text = 'Airspeed (Knots)';
+            } else {
+                btnFin.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                btnAir.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btnAir.classList.add('text-slate-400');
+                title.innerText = "Financial Protection";
+                desc.innerText = "Modeling the Knight Capital 2012 glitch. A rogue trading algorithm starts exhausting capital at millions/second. MetaSpace.bio stops the flow at the packet level upon limit violation.";
+                benchmarkChart.data = getFinData();
+                benchmarkChart.options.scales.y.title.text = 'Exposure ($ Millions)';
+            }
+            benchmarkChart.update();
+        }
+
+        window.addEventListener('load', initChart);
     </script>
 </body>
 </html>

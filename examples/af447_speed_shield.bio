@@ -1,0 +1,45 @@
+/* * METASPACE.BIO FORMAL SPECIFICATION
+
+Esettanulmány: Air France 447 Megelőzés
+
+Modul: Háromszoros Redundáns Sebességpajzs (TRVS)
+*/
+
+CELL AF447_Integrity_Layer {
+
+INTERFACE {
+    INPUT speed_left:   FLOAT;  // Pitot 1 mérés (csomó)
+    INPUT speed_right:  FLOAT;  // Pitot 2 mérés (csomó)
+    INPUT speed_standby:FLOAT;  // Pitot 3 mérés (csomó)
+    
+    OUTPUT flight_law:  ENUM {NORMAL, DETERMINISTIC_FALLBACK};
+    OUTPUT alarm:       BINARY;
+}
+
+INVARIANTS {
+    /* [Divergencia Invariáns] - A mérők nem térhetnek el 20 csomónál jobban */
+    RULE sensor_consistency:
+        MAX_DIFF(speed_left, speed_right, speed_standby) < 20.0;
+
+    /* [Biztonsági Retesz] - Ha a konzisztencia sérül, fix modellre kell állni */
+    RULE protection_gating:
+        sensor_consistency == FALSE IMPLIES flight_law == DETERMINISTIC_FALLBACK;
+}
+
+STATES {
+    STATE NormalCruise {
+        flight_law = NORMAL;
+        alarm = 0;
+        TRANSITION TO SafetyLock IF sensor_consistency == FALSE;
+    }
+
+    /* A MetaSpace "Szentélye": a gép csak a fizika alapján repül tovább */
+    STATE SafetyLock TYPE CRITICAL_SHIELD {
+        flight_law = DETERMINISTIC_FALLBACK;
+        alarm = 1;
+        // Ebben az állapotban a motor és szárnyállás rögzített: Pitch=5deg, Power=85%
+    }
+}
+
+
+}

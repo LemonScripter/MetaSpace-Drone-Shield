@@ -1,4 +1,6 @@
 numpy
 matplotlib
+z3-solver
+pymavlink
 flask
 flask-cors
