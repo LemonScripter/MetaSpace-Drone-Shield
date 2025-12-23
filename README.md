@@ -45,9 +45,9 @@ Run the Tactical Simulation Server and visual monitor:
 
 Aligned with **DO-178C**, **DO-333**, and **IEC 61508**:
 
-1. **Stage 1: Language & Logic Proof (✅ CERTIFIED)** \- Formal semantics and [Audit Log](https://www.google.com/search?q=results/audit_report_summary.json).  
+1. **Stage 1: Language & Logic Proof (✅ CERTIFIED)** \- Formal semantics and [Audit Log](results/audit_report_summary.json).  
 2. **Stage 2: Tool Qualification (✅ IN PROGRESS)** \- Verification of the MetaSpace Compiler v2.0.  
-3. **Stage 3: Safety Standard V\&V (✅ READY)** \- Comprehensive [HARA Report](https://www.google.com/search?q=docs/validation/HARA_REPORT.md).  
+3. **Stage 3: Safety Standard V\&V (✅ READY)** \- Comprehensive [HARA Report](docs/validation/HARA_REPORT.md).  
 4. **Stage 4: Military & Field Validation (Planned)** \- Based on Jammertest 2025 standards.  
 5. **Stage 5: Operational Assurance Case (Planned)** \- GSN structured proof tree.
 
