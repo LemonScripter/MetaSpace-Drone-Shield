@@ -127,3 +127,10 @@ validation/hardware_tests/hackrf_captures/
 
 # Note: All committed files are verified via SHA-256 hashes
 # See PROTECTED_FILES_LIST.md for hash verification information
+
+# Files with sensitive API keys (should not be in repository)
+file_contents.json
+generate_summaries.js
+server.js
+package.json
+file_metadata.json
