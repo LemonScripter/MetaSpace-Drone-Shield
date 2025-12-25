@@ -1,0 +1,84 @@
+/* * METASPACE LOGIC SPECIFICATION - V1.3
+
+Projekt: Egyszerűsített Repülőautomata (Basic UAV)
+
+Jellege: Determinisztikus Integritási Réteg
+*/
+
+CELL SimpleFlightAutomata {
+
+// 1. INTERFÉSZ DEFINÍCIÓ (Érzékelők és Aktuátorok)
+INTERFACE {
+    INPUT gps_data:      VECTOR3D;  // Külső navigáció
+    INPUT ins_data:      VECTOR3D;  // Belső tehetetlenségi horgony (Trust source)
+    INPUT altimeter:     FLOAT;     // Magasságmérő
+    INPUT battery_level: FLOAT;     // Energia szint (%)
+    INPUT last_update:   TIMESTAMP; // Időbélyeg a frissességhez
+    
+    OUTPUT motor_lock:   BINARY;    // Hardveres retesz (1 = LOCK)
+    OUTPUT flight_mode:  ENUM;      // Üzemmód vezérlés
+}
+
+// 2. HOMEOSZTATIKUS INVARIÁNSOK (Megszeghetetlen törvények)
+INVARIANTS {
+    /* [Divergencia Invariáns] - A két forrás nem térhet el jelentősen */
+    RULE spatial_integrity:
+        DISTANCE(gps_data, ins_data) < 30.0;
+
+    /* [Temporal Invariáns] - Az adat nem lehet régebbi 50ms-nál */
+    RULE data_freshness:
+        LIFESPAN(last_update) < 0.05;
+
+    /* [Metabolikus Invariáns] - 10% alatt nincs küldetés, csak mentés */
+    RULE energy_reserve:
+        battery_level > 10.0;
+}
+
+// 3. FUZZY HEURISZTIKA (Biztonsági sávok)
+FUZZY_LOGIC {
+    /* Ha a magasság 5 és 2 méter közé esik, lassítunk (nem csak leállunk) */
+    ZONE ground_proximity:
+        IF altimeter < 5.0 THEN THRUST_REDUCTION = LINEAR(1.0, 0.0);
+        
+    /* Ha az akkumulátor 20% alá esik, figyelmeztető üzemmód */
+    ZONE power_warning:
+        IF battery_level < 20.0 THEN MODE_PRIORITY = "LOW_POWER";
+}
+
+// 4. DETERMINISZTIKUS ÁLLAPOTGÉP
+STATES {
+    /* Alapállapot: Felszállásra kész */
+    STATE Grounded {
+        motor_lock = 0;
+        flight_mode = "IDLE";
+        FROM Grounded TO TakingOff IF command == "START" AND energy_reserve == TRUE;
+    }
+
+    /* Repülési fázis: Aktív integritás-védelem */
+    STATE InFlight {
+        motor_lock = 0;
+        flight_mode = "AUTO";
+        
+        // Ha sérül a térbeli vagy időbeli integritás -> Azonnali reteszelés
+        FROM InFlight TO EmergencyLock IF spatial_integrity == FALSE OR data_freshness == FALSE;
+        
+        // Ha az energia kritikus -> Kényszerített leszállás
+        FROM InFlight TO Recovery IF energy_reserve == FALSE;
+    }
+
+    /* Vészhelyzeti Retesz: Fizikai lezárás (Logic Lock) */
+    STATE EmergencyLock TYPE CRITICAL_SHIELD {
+        motor_lock = 1; // Az AND-kapu egyik lába fixen nullára vált
+        flight_mode = "FAILSAFE_NEUTRAL";
+        // Nincs automata visszatérés - manuális feloldás szükséges
+    }
+
+    /* Mentési fázis: Korlátozott funkciók */
+    STATE Recovery {
+        motor_lock = 0;
+        flight_mode = "LAND_IMMEDIATELY";
+    }
+}
+
+
+}

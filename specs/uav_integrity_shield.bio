@@ -1,0 +1,68 @@
+/* * METASPACE LOGIC SPECIFICATION
+ *
+ * Module: UAV Navigation Integrity Shield
+ *
+ * Reference: OSIM Patent Pending 20251221-2230
+ *
+ * Inventor: Laszlo-Ferenc Szoke
+ */
+
+CELL DroneIntegrityShield {
+
+// 1. INTERFACE
+// Define physical anchors and control signals
+INTERFACE {
+    INPUT gps_pos:    VECTOR2D;    // External GNSS coordinates
+    INPUT ins_pos:    VECTOR2D;    // Internal, trusted inertial data
+    INPUT rf_power:   FLOAT;       // GPS signal reception strength (dBm)
+    INPUT sat_count:  INTEGER;     // Number of available satellites
+    
+    OUTPUT alarm:     BINARY;      // Security alert
+    OUTPUT isolation: BINARY;      // Physical disconnection of GPS data stream
+}
+
+// 2. INVARIANTS
+// These are the unbreakable physical laws in the system
+INVARIANTS {
+    /* Divergence rule: GPS and INS cannot diverge more than 50 meters */
+    RULE spatial_continuity:
+        DISTANCE(gps_pos, ins_pos) <= 50.0;
+
+    /* Radio frequency integrity: Excessively strong signal indicates spoofing */
+    RULE signal_power_limit:
+        rf_power <= -125.0;
+
+    /* If any of the above rules are violated, the output ALARM must be high */
+    RULE safety_gating:
+        (spatial_continuity == FALSE OR signal_power_limit == FALSE) 
+        IMPLIES alarm == 1;
+}
+
+// 3. DETERMINISTIC STATE MACHINE
+// Verified description of system behavior
+STATES {
+    /* Normal operation mode: All data is authentic */
+    STATE Operational {
+        alarm = 0;
+        isolation = 0;
+        TRANSITION TO Suspect IF DISTANCE(gps_pos, ins_pos) > 20.0;
+    }
+
+    /* Suspect mode: Increased noise or minor divergence */
+    STATE Suspect {
+        alarm = 1;
+        isolation = 0;
+        TRANSITION TO Isolated IF DISTANCE(gps_pos, ins_pos) > 50.0;
+        TRANSITION TO Operational IF DISTANCE(gps_pos, ins_pos) < 10.0;
+    }
+
+    /* Isolated mode: GPS is compromised, system locks */
+    STATE Isolated TYPE SAFETY_LOCK {
+        alarm = 1;
+        isolation = 1;
+        // No automatic return from this state (Deterministic stop)
+    }
+}
+
+
+}

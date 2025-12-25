@@ -1,0 +1,29 @@
+MetaSpace: A Determinisztikus Heurisztika Elmélete
+
+Ez a dokumentum bevezeti a Fuzzy-Integritás fogalmát a MetaSpace ökoszisztémába.
+
+1. A probléma: A bináris világ korlátai
+
+A klasszikus biztonsági rendszerek (pl. vészleállító gomb) binárisak: vagy megy a gép, vagy áll. Azonban a valóságban a szenzorok zajosak, és a határértékhez közeledve szükség van egy "átmeneti zónára", ahol a rendszer már reagál, de még nem blokkol teljesen.
+
+2. A megoldás: Determinisztikus Heurisztika
+
+A MetaSpace nem "tippelget", mint egy AI. A Determinisztikus Heurisztika egy olyan matematikai leképezés, amely:
+
+Fuzzifikáció: A nyers adatot (pl. 45m) egy 0 és 1 közötti kockázati értékké alakítja.
+
+Heurisztikus szabály: Meghatározza a beavatkozás mértékét (pl. arányos lassítás).
+
+Determinisztikus végrehajtás: A kimenet nem változhat véletlenszerűen; ugyanarra a bemenetre mindig ugyanaz a korlátozás lép életbe.
+
+3. Miért "Spanyolviasz" ez is?
+
+Mert egyesíti a Fuzzy logika rugalmasságát a Formális verifikáció biztonságával.
+
+Hagyományos Fuzzy: Gyakran kiszámíthatatlan kimeneteket produkál a széleken.
+
+MetaSpace Fuzzy: A tagsági függvények (Membership Functions) maguk is invariánsok. Ha a heurisztika nem képes stabilizálni a rendszert, a determinisztikus AND-kapu (FIGURA 3) könyörtelenül lezár.
+
+Alkalmazási példa:
+
+Egy önvezető autó nem satufékkel áll meg, ha egy gyalogos közeledik a sávhoz, hanem a MetaSpace Fuzzy Unit segítségével arányosan csökkenti a sebességet, miközben matematikailag garantálja, hogy ha a gyalogos átlépi a kritikus határt, az autó fizikailag képtelen lesz továbbhaladni.

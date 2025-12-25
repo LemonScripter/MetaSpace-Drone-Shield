@@ -1,0 +1,129 @@
+# MetaSpace-Drone-Shield .gitignore
+# Security: Sensitive files are excluded and protected via SHA-256 hash verification
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# C++ build artifacts
+*.o
+*.a
+*.so
+*.dylib
+*.exe
+*.out
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+build/
+Makefile
+
+# ArduPilot
+*.bin
+*.hex
+*.elf
+*.map
+
+# Sensitive files - NEVER commit these
+# Note: All sensitive files are protected via SHA-256 hash verification
+# See docs/SECURITY.md for hash verification procedures
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+secrets/
+credentials/
+*.env
+.env.local
+.env.*.local
+
+# Proprietary/Classified modules
+# These are protected via hash verification and not distributed publicly
+**/PRO_SECRET*
+**/CLASSIFIED*
+**/PROPRIETARY*
+
+# Test artifacts
+*.log
+*.tmp
+coverage/
+.coverage
+.pytest_cache/
+htmlcov/
+
+# Documentation builds
+docs/_build/
+site/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+*.bak
+*.swp
+*.tmp
+temp_uploads/
+temp/
+
+# Export packages (large files)
+exports/*.zip
+exports/*.sha256
+
+# Node modules (if any)
+node_modules/
+package-lock.json
+
+# Large binary files
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+# Note: Some PDFs may be needed for documentation - review case by case
+
+# Simulation data
+*.bag
+*.rosbag
+*.csv
+validation/test_results/*.csv
+
+# Hardware test data
+validation/hardware_tests/field_test_data/
+validation/hardware_tests/hackrf_captures/
+
+# Note: All committed files are verified via SHA-256 hashes
+# See PROTECTED_FILES_LIST.md for hash verification information

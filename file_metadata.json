@@ -1,0 +1,602 @@
+{
+  "assets\\MetaSpace_Anexa_Grafica.pdf": {
+    "path": "assets/MetaSpace_Anexa_Grafica.pdf",
+    "name": "MetaSpace_Anexa_Grafica.pdf",
+    "category": "docs",
+    "subcategory": "patent",
+    "description_hu": "A fájl egy szabadalmi bejegyzéshez kapcsolódó grafikai mellékletet tartalmaz, amely a kritikus rendszerek és autonóm eszközök integritásának védelmét célzó módszert és rendszert ír le. A dokumentumban különböző diagramok és elemek találhatók, amelyek a folyamatok és a biztonsági logikák működését illusztrálják.",
+    "description_en": "The file contains a graphical annex related to a patent application, describing a method and system for protecting the integrity of critical systems and autonomous devices. The document includes various diagrams and elements illustrating the operation of processes and safety logics.",
+    "summary_hu": "A fájl egy szabadalmi bejegyzés grafikai mellékletét tartalmazza, amely a kritikus rendszerek védelmét célozza meg.",
+    "summary_en": "The file contains a graphical annex of a patent application aimed at protecting critical systems."
+  },
+  "case_studies\\CNC_Fusion360_MetasPace_esettanulmany.pdf": {
+    "path": "case_studies/CNC_Fusion360_MetasPace_esettanulmany.pdf",
+    "name": "CNC_Fusion360_MetasPace_esettanulmany.pdf",
+    "category": "case_studies",
+    "subcategory": null,
+    "description_hu": "A fájl egy esettanulmányt tartalmaz a MetaSpace logikai keretrendszerről, amely a CNC megmunkálás biztonságát és intelligenciáját emeli a hagyományos CAM szoftverekhez képest. A dokumentum részletezi a MetaSpace előnyeit, mint például a matematikai bizonyítást és a zárt hurokú logikai ellenőrzést.",
+    "description_en": "The file contains a case study on the MetaSpace logical framework, which enhances the safety and intelligence of CNC machining compared to traditional CAM software. The document details the advantages of MetaSpace, such as mathematical proof and closed-loop logical verification.",
+    "summary_hu": "A MetaSpace esettanulmány bemutatja, hogyan garantálja a biztonságos CNC megmunkálást a logikai ellenőrzés révén.",
+    "summary_en": "The MetaSpace case study demonstrates how logical verification ensures safe CNC machining."
+  },
+  "case_studies\\Esettanulmány_ Air France 447 (AF447) .rtf": {
+    "path": "case_studies/Esettanulmány_ Air France 447 (AF447) .rtf",
+    "name": "Esettanulmány_ Air France 447 (AF447) .rtf",
+    "category": "case_studies",
+    "subcategory": null,
+    "description_hu": "Ez a fájl az Air France 447-es járatának esettanulmányát tartalmazza, amely a 2009-es tragikus baleset részleteit és okait elemzi. A dokumentum valószínűleg a baleset körülményeit, a repülőgép működését és a vizsgálatok eredményeit tárgyalja.",
+    "description_en": "This file contains a case study of the Air France Flight 447, analyzing the details and causes of the tragic accident that occurred in 2009. The document likely discusses the circumstances of the crash, the aircraft's operation, and the findings of the investigations.",
+    "summary_hu": "A fájl az Air France 447-es járatának balesetével kapcsolatos esettanulmányt tartalmaz.",
+    "summary_en": "The file contains a case study related to the accident of Air France Flight 447."
+  },
+  "case_studies\\MetaSpace esettanulmÃ¡ny-2.pdf": {
+    "path": "case_studies/MetaSpace esettanulmÃ¡ny-2.pdf",
+    "name": "MetaSpace esettanulmÃ¡ny-2.pdf",
+    "category": "case_studies",
+    "subcategory": null,
+    "description_hu": "A fájl egy MetaSpace esettanulmányt tartalmaz, amely a Fusion 360 és a Cimatron CAM szoftverek összehasonlítására fókuszál a MetaSpace logikai és verifikációs keretrendszerével szemben. A dokumentum részletezi a MetaSpace előnyeit, mint például a matematikai bizonyítást és a zárt hurokú logikai ellenőrzést.",
+    "description_en": "The file contains a MetaSpace case study that focuses on comparing Fusion 360 and Cimatron CAM software with the MetaSpace logical and verification framework. The document details the advantages of MetaSpace, such as mathematical proof and closed-loop logical verification.",
+    "summary_hu": "A MetaSpace esettanulmány bemutatja a hagyományos CAM szoftverek korlátait és a MetaSpace által nyújtott biztonsági és intelligencia előnyöket a CNC megmunkálásban.",
+    "summary_en": "The MetaSpace case study highlights the limitations of traditional CAM software and the safety and intelligence advantages provided by MetaSpace in CNC machining."
+  },
+  "case_studies\\MetaSpace vs. Hagyományos Autopilot Rendszerek.rtf": {
+    "path": "case_studies/MetaSpace vs. Hagyományos Autopilot Rendszerek.rtf",
+    "name": "MetaSpace vs. Hagyományos Autopilot Rendszerek.rtf",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A fájl a MetaSpace és a hagyományos autopilot rendszerek közötti összehasonlítást tartalmazza, bemutatva a két megközelítés közötti különbségeket és hasonlóságokat. A dokumentum célja, hogy rávilágítson a MetaSpace előnyeire és a hagyományos rendszerek korlátaira.",
+    "description_en": "The file contains a comparison between MetaSpace and traditional autopilot systems, highlighting the differences and similarities between the two approaches. The document aims to shed light on the advantages of MetaSpace and the limitations of traditional systems.",
+    "summary_hu": "A dokumentum a MetaSpace és a hagyományos autopilot rendszerek közötti különbségeket és előnyöket elemzi.",
+    "summary_en": "The document analyzes the differences and advantages between MetaSpace and traditional autopilot systems."
+  },
+  "clean_utf8.py": {
+    "path": "clean_utf8.py",
+    "name": "clean_utf8.py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy Python szkript, amely a fájlok UTF-8 kódolásának javítására szolgál. A 'fix_encoding_errors' függvény különböző gyakori torzulásokat javít, míg a 'process_file' függvény beolvassa és visszaírja a fájlokat tiszta UTF-8 formátumban.",
+    "description_en": "The file is a Python script designed to fix UTF-8 encoding issues in files. The 'fix_encoding_errors' function corrects various common distortions, while the 'process_file' function reads and rewrites the files in clean UTF-8 format.",
+    "summary_hu": "A szkript a fájlok UTF-8 kódolásának javítására összpontosít.",
+    "summary_en": "The script focuses on fixing the UTF-8 encoding of files."
+  },
+  "core\\METASPACE CORE ENGINE - VERSION 1.3 (SOVEREIGN SWARM).py": {
+    "path": "core/METASPACE CORE ENGINE - VERSION 1.3 (SOVEREIGN SWARM).py",
+    "name": "METASPACE CORE ENGINE - VERSION 1.3 (SOVEREIGN SWARM).py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl a METASPACE CORE ENGINE 1.3 verzióját tartalmazza, amely integrálja az időbeli determinizmust, a raj-konszenzust és az energia-kezelést. A kód különböző osztályokat definiál, amelyek ellenőrzik az adatok frissességét és a raj integritását, valamint egy fordítót, amely generálja a 'Sovereign Shield' kódot.",
+    "description_en": "The file contains version 1.3 of the METASPACE CORE ENGINE, which integrates temporal determinism, swarm consensus, and energy metabolism. The code defines various classes that check data freshness and swarm integrity, as well as a compiler that generates the 'Sovereign Shield' code.",
+    "summary_hu": "A fájl a METASPACE CORE ENGINE működését és a rajok integritásának ellenőrzését célozza meg.",
+    "summary_en": "The file aims to demonstrate the operation of the METASPACE CORE ENGINE and the verification of swarm integrity."
+  },
+  "core\\METASPACE LOGIC ENGINE - PUBLIC CORE (COMMUNITY EDITION).py": {
+    "path": "core/METASPACE LOGIC ENGINE - PUBLIC CORE (COMMUNITY EDITION).py",
+    "name": "METASPACE LOGIC ENGINE - PUBLIC CORE (COMMUNITY EDITION).py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl a MetaSpace nyílt forráskódú interfészét tartalmazza, amely lehetővé teszi a .bio fájlok beolvasását és validálását. A fájl tartalmaz egy elemzőt és egy validációs stubot, amelyek segítik a logikai struktúrák felépítését és ellenőrzését.",
+    "description_en": "The file contains the open-source interface of MetaSpace, allowing for the reading and validation of .bio files. It includes a parser and a validation stub that assist in building and verifying logical structures.",
+    "summary_hu": "A fájl a MetaSpace logikai motor nyílt verzióját valósítja meg, amely a .bio fájlok elemzésére és validálására szolgál.",
+    "summary_en": "The file implements the open version of the MetaSpace logic engine, designed for analyzing and validating .bio files."
+  },
+  "core\\METASPACE PRO - SECRET CORE MODULE.py": {
+    "path": "core/METASPACE PRO - SECRET CORE MODULE.py",
+    "name": "METASPACE PRO - SECRET CORE MODULE.py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy Python alapú modult tartalmaz, amely a fizikai hardver leíró nyelvvé (VHDL) történő fordítást végzi. A modul a logikai kapuk generálására és invariánsok hardveres megvalósítására összpontosít.",
+    "description_en": "The file contains a Python-based module that performs the translation into a physical hardware description language (VHDL). The module focuses on generating logic gates and the hardware implementation of invariants.",
+    "summary_hu": "A fájl egy VHDL fordító modult definiál Python nyelven, amely logikai kapuk generálására szolgál.",
+    "summary_en": "The file defines a VHDL compiler module in Python that is used for generating logic gates."
+  },
+  "core\\metaspace_core_engine.py": {
+    "path": "core/metaspace_core_engine.py",
+    "name": "metaspace_core_engine.py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl a MetaSpace technológia magját képezi, amely tartalmazza a .bio specifikációs nyelv szemantikai elemzőjét, a formális állapottér-verifikátort és a determinisztikus fordítót. A modul célja a logikai szintézis és a hardver-szintű 'Logic Lock' mechanizmus megvalósítása.",
+    "description_en": "The file constitutes the core of the MetaSpace technology, including a semantic analyzer for the .bio specification language, a formal state-space verifier, and a deterministic compiler. The module aims to implement logical synthesis and a hardware-level 'Logic Lock' mechanism.",
+    "summary_hu": "A fájl a MetaSpace technológia alapját képezi, amely a logikai szintézis és a biztonságos működés érdekében készült.",
+    "summary_en": "The file forms the basis of the MetaSpace technology, designed for logical synthesis and secure operation."
+  },
+  "docs\\patent\\PATENT APPLICATION - TECHNICAL SPECIFICATION.docx": {
+    "path": "docs/patent/PATENT APPLICATION - TECHNICAL SPECIFICATION.docx",
+    "name": "PATENT APPLICATION - TECHNICAL SPECIFICATION.docx",
+    "category": "docs",
+    "subcategory": "patent",
+    "description_hu": "A fájl egy szabadalmi bejegyzés technikai specifikációját tartalmazza, amely egy autonóm rendszerek és kritikus rendszerek logikai integritásának védelmét célzó módszert és rendszert ír le. A szabadalom a formális logika alkalmazásával biztosítja a működési biztonságot kibertámadásokkal szemben.",
+    "description_en": "The file contains the technical specification of a patent application describing a method and system for protecting the logical integrity of autonomous systems and critical systems. The patent ensures operational safety against cyber attacks by utilizing formal logic.",
+    "summary_hu": "A szabadalom egy determinisztikus logikai motort mutat be, amely autonóm rendszerek védelmét szolgálja, és a biztonsági szabályokat közvetlenül hardverbe szintetizálja.",
+    "summary_en": "The patent presents a deterministic logic engine designed to protect autonomous systems, synthesizing safety rules directly into hardware."
+  },
+  "docs\\patent\\PATENT APPLICATION - TECHNICAL SPECIFICATION.rtf": {
+    "path": "docs/patent/PATENT APPLICATION - TECHNICAL SPECIFICATION.rtf",
+    "name": "PATENT APPLICATION - TECHNICAL SPECIFICATION.rtf",
+    "category": "docs",
+    "subcategory": "patent",
+    "description_hu": "A fájl egy szabadalmi kérelem technikai specifikációját tartalmazza, amely részletezi a szabadalmazni kívánt találmányt és annak működését. A dokumentum célja, hogy bemutassa a találmány újdonságát és alkalmazhatóságát a megfelelő jogi keretek között.",
+    "description_en": "The file contains the technical specification of a patent application, detailing the invention to be patented and its operation. The document aims to demonstrate the novelty and applicability of the invention within the appropriate legal frameworks.",
+    "summary_hu": "A fájl egy szabadalmi kérelem technikai specifikációját tartalmazza.",
+    "summary_en": "The file contains the technical specification of a patent application."
+  },
+  "docs\\strategic\\EXECUTIVE SUMMARY_ MetaSpace Logic Engine.rtf": {
+    "path": "docs/strategic/EXECUTIVE SUMMARY_ MetaSpace Logic Engine.rtf",
+    "name": "EXECUTIVE SUMMARY_ MetaSpace Logic Engine.rtf",
+    "category": "docs",
+    "subcategory": "strategic",
+    "description_hu": "A fájl egy stratégiai dokumentum, amely a MetaSpace Logic Engine működésével és céljaival foglalkozik. A dokumentum célja, hogy összefoglalja a projekt főbb aspektusait és jövőbeli irányait.",
+    "description_en": "The file is a strategic document that discusses the operation and objectives of the MetaSpace Logic Engine. Its purpose is to summarize the main aspects of the project and its future directions.",
+    "summary_hu": "A fájl a MetaSpace Logic Engine stratégiai összefoglalóját tartalmazza.",
+    "summary_en": "The file contains the strategic summary of the MetaSpace Logic Engine."
+  },
+  "docs\\strategic\\MetaSpace Logic Engine - Stratégiai Dokumentáció.docx": {
+    "path": "docs/strategic/MetaSpace Logic Engine - Stratégiai Dokumentáció.docx",
+    "name": "MetaSpace Logic Engine - Stratégiai Dokumentáció.docx",
+    "category": "docs",
+    "subcategory": "strategic",
+    "description_hu": "A dokumentum a MetaSpace Logic Engine projekt nyilvános megjelenéséhez és szabadalmi folyamatához szükséges anyagokat tartalmazza, beleértve a technológiai érettségi szintet és a szellemi tulajdon státuszát.",
+    "description_en": "The document contains all materials necessary for the public presentation of the MetaSpace Logic Engine project and the completion of the patent process, including the technology readiness level and intellectual property status.",
+    "summary_hu": "A MetaSpace Logic Engine egy determinisztikus logikai integritási réteg, amely a GNSS navigációs sebezhetőségeit célozza meg.",
+    "summary_en": "The MetaSpace Logic Engine is a deterministic logic integrity layer aimed at addressing GNSS navigation vulnerabilities."
+  },
+  "docs\\strategic\\MetaSpace Validációs Helyzetjelentés és Stratégiai Útiterv.rtf": {
+    "path": "docs/strategic/MetaSpace Validációs Helyzetjelentés és Stratégiai Útiterv.rtf",
+    "name": "MetaSpace Validációs Helyzetjelentés és Stratégiai Útiterv.rtf",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl egy validációs helyzetjelentést és stratégiai útitervet tartalmaz, amely a MetaSpace projekthez kapcsolódik. A dokumentum célja a projekt előrehaladásának nyomon követése és a jövőbeli lépések megtervezése.",
+    "description_en": "The file contains a validation report and strategic roadmap related to the MetaSpace project. The document aims to track the project's progress and plan future steps.",
+    "summary_hu": "A fájl a MetaSpace projekt validációs helyzetjelentését és stratégiai útitervét tartalmazza.",
+    "summary_en": "The file includes the validation report and strategic roadmap for the MetaSpace project."
+  },
+  "docs\\strategic\\TECHNOLÓGIAI PROSPEKTUS.docx": {
+    "path": "docs/strategic/TECHNOLÓGIAI PROSPEKTUS.docx",
+    "name": "TECHNOLÓGIAI PROSPEKTUS.docx",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A fájl egy technikai prospektust tartalmaz a MetaSpace Logic Engine-ről, amely a döntéshozatali megbízhatóság növelésére szolgál autonóm rendszerekben. A dokumentum részletezi a technológiai megkülönböztető jegyeket, mint a formális verifikációt és a hardver szintű logikai szintézist.",
+    "description_en": "The file contains a technical prospectus for the MetaSpace Logic Engine, designed to enhance decision-making reliability in autonomous systems. It details technological differentiators such as formal verification and hardware-level logic synthesis.",
+    "summary_hu": "A dokumentum a MetaSpace Logic Engine technikai aspektusait és előnyeit mutatja be, beleértve a formális verifikációt és a hardver szintű megoldásokat.",
+    "summary_en": "The document presents the technical aspects and advantages of the MetaSpace Logic Engine, including formal verification and hardware-level solutions."
+  },
+  "docs\\technical\\MetaSpace Logic Engine.docx": {
+    "path": "docs/technical/MetaSpace Logic Engine.docx",
+    "name": "MetaSpace Logic Engine.docx",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A MetaSpace egy determinisztikus logikai integritási réteg, amely formális matematikai verifikációval biztosítja az autonóm rendszerek döntéshozatali megbízhatóságát. A technológia a GNSS sebezhetőségeit célozza meg hardver szintű logikai kapuzás alkalmazásával.",
+    "description_en": "MetaSpace is a Deterministic Logic Integrity Layer that ensures the decision-making reliability of autonomous systems through formal mathematical verification. The technology addresses GNSS vulnerabilities by implementing hardware-level logic gating.",
+    "summary_hu": "A MetaSpace projekt célja az autonóm rendszerek döntéshozatali bizonytalanságának csökkentése formális verifikációval és hardver szintű megoldásokkal.",
+    "summary_en": "The MetaSpace project aims to reduce decision-making uncertainty in autonomous systems through formal verification and hardware-level solutions."
+  },
+  "docs\\technical\\MetaSpace Logic Engine.rtf": {
+    "path": "docs/technical/MetaSpace Logic Engine.rtf",
+    "name": "MetaSpace Logic Engine.rtf",
+    "category": "docs/technical",
+    "subcategory": null,
+    "description_hu": "A fájl technikai dokumentációt tartalmaz, amely a MetaSpace Logic Engine működésével és felépítésével kapcsolatos információkat tartalmaz. A dokumentum részletesen bemutatja a rendszer architektúráját és a használt technológiákat.",
+    "description_en": "The file contains technical documentation related to the operation and structure of the MetaSpace Logic Engine. It provides detailed information about the system architecture and the technologies used.",
+    "summary_hu": "A fájl a MetaSpace Logic Engine technikai aspektusait tárgyalja.",
+    "summary_en": "The file discusses the technical aspects of the MetaSpace Logic Engine."
+  },
+  "docs\\technical\\MetaSpace Logic Engine_ Global Technical Disclosure.docx": {
+    "path": "docs/technical/MetaSpace Logic Engine_ Global Technical Disclosure.docx",
+    "name": "MetaSpace Logic Engine_ Global Technical Disclosure.docx",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A fájl a MetaSpace Logic Engine technológiai leírását tartalmazza, amely a kiber-fizikai védelmet célozza meg autonóm rendszerek számára. A dokumentum bemutatja a determinisztikus logikai integritási réteg működését és innovációs pontjait.",
+    "description_en": "The file contains a technical description of the MetaSpace Logic Engine technology aimed at cyber-physical protection for autonomous systems. It outlines the operation of the deterministic logic integrity layer and its innovative points.",
+    "summary_hu": "A MetaSpace Logic Engine egy új technológia, amely a szenzoros adatok manipulációjának kockázatait csökkenti autonóm platformokon, matematikai bizonyosságot biztosítva a döntéshozatal során.",
+    "summary_en": "The MetaSpace Logic Engine is a new technology that reduces the risks of sensor data compromise in autonomous platforms, providing mathematical certainty in decision-making."
+  },
+  "docs\\technical\\MetaSpace_ Technological Analysis and IP Protection.docx": {
+    "path": "docs/technical/MetaSpace_ Technological Analysis and IP Protection.docx",
+    "name": "MetaSpace_ Technological Analysis and IP Protection.docx",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A dokumentum a Citrom Méda LTD fő technológiai eszközének, a metaspace_core_engine.py fájlnak a védelmét és a szellemi tulajdon védelmi stratégiáját tárgyalja. Részletezi a találmány három szintű biztonsági architektúráját és a tárolási protokollokat.",
+    "description_en": "The document discusses the protection of the primary technological asset of Citrom Méda LTD, the metaspace_core_engine.py file, and its intellectual property protection strategy. It details the three-level security architecture of the invention and the storage protocols.",
+    "summary_hu": "A dokumentum a metaspace_core_engine.py fájl szellemi tulajdonának védelmét és a biztonsági architektúráját elemzi.",
+    "summary_en": "The document analyzes the intellectual property protection and security architecture of the metaspace_core_engine.py file."
+  },
+  "docs\\technical\\METASPACE_ TECHNOLÓGIAI VALIDÁCIÓS JEGYZŐKÖNYV.docx": {
+    "path": "docs/technical/METASPACE_ TECHNOLÓGIAI VALIDÁCIÓS JEGYZŐKÖNYV.docx",
+    "name": "METASPACE_ TECHNOLÓGIAI VALIDÁCIÓS JEGYZŐKÖNYV.docx",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A dokumentum a MetaSpace technológia formális validációs jegyzőkönyvét tartalmazza, amely matematikai bizonyítékokat és szimulációs naplókat mutat be a rendszer teljesítményéről és megbízhatóságáról.",
+    "description_en": "The document contains the formal validation report for the MetaSpace technology, presenting mathematical proofs and simulation logs regarding the system's performance and reliability.",
+    "summary_hu": "A MetaSpace technológia TRL 4 szintű érettséggel rendelkezik, és alkalmas kritikus infrastruktúrák védelmére.",
+    "summary_en": "The MetaSpace technology has a TRL 4 maturity level and is suitable for protecting critical infrastructures."
+  },
+  "docs\\technical\\METASPACE_ TECHNOLÓGIAI VALIDÁCIÓS JEGYZŐKÖNYV.rtf": {
+    "path": "docs/technical/METASPACE_ TECHNOLÓGIAI VALIDÁCIÓS JEGYZŐKÖNYV.rtf",
+    "name": "METASPACE_ TECHNOLÓGIAI VALIDÁCIÓS JEGYZŐKÖNYV.rtf",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl egy technológiai validációs jegyzőkönyvet tartalmaz, amely a METASPACE projekthez kapcsolódik. A dokumentum célja a technológiai megoldások érvényesítése és a projekt keretein belül végzett validációs folyamatok részletezése.",
+    "description_en": "The file contains a technological validation protocol related to the METASPACE project. The purpose of the document is to validate technological solutions and detail the validation processes carried out within the project.",
+    "summary_hu": "A dokumentum a METASPACE projekt validációs folyamatait írja le.",
+    "summary_en": "The document describes the validation processes of the METASPACE project."
+  },
+  "docs\\theory\\3_piller_ido_energia_kozosseg.txt": {
+    "path": "docs/theory/3_piller_ido_energia_kozosseg.txt",
+    "name": "3_piller_ido_energia_kozosseg.txt",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A fájl a MetaSpace metakód-nyelv három alapvető pillérét tárgyalja: időbeli integritás, raj-konszenzus és anyagcsere invariánsok. Ezek a területek a drónok biztonságos működését és a kiber-fizikai valóság teljes lefedését célozzák meg.",
+    "description_en": "The file discusses the three fundamental pillars of the MetaSpace metacode language: temporal integrity, swarm consensus, and metabolic invariants. These areas aim to ensure the safe operation of drones and cover the entirety of the cyber-physical reality.",
+    "summary_hu": "A fájl a MetaSpace metakód három alapvető pillérét és azok integrációját mutatja be a drónok működésében.",
+    "summary_en": "The file presents the three fundamental pillars of the MetaSpace metacode and their integration in the operation of drones."
+  },
+  "docs\\theory\\A Titkos Mag (Secret Core) Felépítése.txt": {
+    "path": "docs/theory/A Titkos Mag (Secret Core) Felépítése.txt",
+    "name": "A Titkos Mag (Secret Core) Felépítése.txt",
+    "category": "docs",
+    "subcategory": "strategic",
+    "description_hu": "A fájl a MetaSpace prototípusának fejlesztéséről szól, amely három kulcsfontosságú modult tartalmaz: VHDL/Verilog Compiler, SMT Solver Heurisztikák és Hardware Anchors Database. Ezek a modulok a technológiai előny biztosítására és a szoftverhibák elkerülésére szolgálnak.",
+    "description_en": "The file discusses the development of the MetaSpace prototype, which includes three key modules: VHDL/Verilog Compiler, SMT Solver Heuristics, and Hardware Anchors Database. These modules aim to ensure technological advantage and prevent software failures.",
+    "summary_hu": "A fájl a MetaSpace prototípusának fejlesztését és a kulcsfontosságú modulokat ismerteti.",
+    "summary_en": "The file outlines the development of the MetaSpace prototype and its key modules."
+  },
+  "docs\\theory\\MetaSpace A Determinisztikus Heuris.txt": {
+    "path": "docs/theory/MetaSpace A Determinisztikus Heuris.txt",
+    "name": "MetaSpace A Determinisztikus Heuris.txt",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A dokumentum a MetaSpace ökoszisztémában alkalmazott Determinisztikus Heurisztika elméletét mutatja be, amely a klasszikus biztonsági rendszerek korlátait és a Fuzzy-Integritás fogalmát tárgyalja.",
+    "description_en": "The document introduces the theory of Deterministic Heuristics applied in the MetaSpace ecosystem, discussing the limitations of classical security systems and the concept of Fuzzy Integrity.",
+    "summary_hu": "A fájl a MetaSpace ökoszisztéma Determinisztikus Heurisztikáját és annak alkalmazását elemzi a biztonsági rendszerekben.",
+    "summary_en": "The file analyzes the Deterministic Heuristics of the MetaSpace ecosystem and its application in security systems."
+  },
+  "docs\\theory\\MetaSpace A Sejttől a .bio Nyelvig.txt": {
+    "path": "docs/theory/MetaSpace A Sejttől a .bio Nyelvig.txt",
+    "name": "MetaSpace A Sejttől a .bio Nyelvig.txt",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A dokumentum a biológiai sejtek működésének és a MetaSpace technológia analógiáját tárgyalja, bemutatva, hogy a MetaSpace hogyan képes a biológiai homeosztázis elveit alkalmazni a digitális világban.",
+    "description_en": "The document discusses the analogy between biological cell functions and MetaSpace technology, illustrating how MetaSpace can apply the principles of biological homeostasis in the digital world.",
+    "summary_hu": "A MetaSpace technológia a biológiai sejtek működését mintázza, és a természet által használt logikát alkalmazza a digitális környezetben.",
+    "summary_en": "MetaSpace technology models the functioning of biological cells and applies the logic used by nature in the digital environment."
+  },
+  "docs\\theory\\MetaSpace vs. Hagyományos Autopilot Rendszerek.rtf": {
+    "path": "docs/theory/MetaSpace vs. Hagyományos Autopilot Rendszerek.rtf",
+    "name": "MetaSpace vs. Hagyományos Autopilot Rendszerek.rtf",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A fájl a MetaSpace és a hagyományos autopilot rendszerek közötti összehasonlítást tartalmazza, bemutatva a két megközelítés közötti különbségeket és hasonlóságokat. A dokumentum célja, hogy rávilágítson a MetaSpace előnyeire és hátrányaira a hagyományos rendszerekhez képest.",
+    "description_en": "The file contains a comparison between MetaSpace and traditional autopilot systems, highlighting the differences and similarities between the two approaches. The document aims to shed light on the advantages and disadvantages of MetaSpace compared to traditional systems.",
+    "summary_hu": "A dokumentum a MetaSpace és a hagyományos autopilot rendszerek közötti különbségeket és hasonlóságokat elemzi.",
+    "summary_en": "The document analyzes the differences and similarities between MetaSpace and traditional autopilot systems."
+  },
+  "docs\\validation\\MetaSpace_ SITL Validációs és Audit Stratégia.rtf": {
+    "path": "docs/validation/MetaSpace_ SITL Validációs és Audit Stratégia.rtf",
+    "name": "MetaSpace_ SITL Validációs és Audit Stratégia.rtf",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl a MetaSpace SITL validációs és audit stratégiáját tartalmazza, amely a rendszer működésének ellenőrzésére és érvényesítésére vonatkozik. A dokumentum részletezi a validációs folyamatokat és az auditálási eljárásokat, amelyek biztosítják a rendszer megbízhatóságát és teljesítményét.",
+    "description_en": "The file contains the MetaSpace SITL validation and audit strategy, which pertains to the verification and validation of the system's operation. It details the validation processes and auditing procedures that ensure the reliability and performance of the system.",
+    "summary_hu": "A dokumentum a MetaSpace SITL validációs és audit stratégiáját írja le, hangsúlyozva a rendszer megbízhatóságát.",
+    "summary_en": "The document describes the MetaSpace SITL validation and audit strategy, emphasizing the reliability of the system."
+  },
+  "docs\\validation\\validacios_feltetelek.docx": {
+    "path": "docs/validation/validacios_feltetelek.docx",
+    "name": "validacios_feltetelek.docx",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl a MetaSpace logikai metanyelv validálásához szükséges bizonyítási és validációs állomásokat részletezi, beleértve a formális nyelv definícióját, a fordító minősítését, valamint a biztonsági szabványoknak való megfelelést. A dokumentum hangsúlyozza a különböző lépcsőfokokat, amelyeken a metanyelvnek át kell esnie a megbízhatóság és a biztonság érdekében.",
+    "description_en": "The file details the proof and validation stages required for the validation of the MetaSpace logical meta-language, including the formal definition of the language, the qualification of the compiler, and compliance with safety standards. It emphasizes the various steps that the meta-language must undergo to ensure reliability and safety.",
+    "summary_hu": "A dokumentum a MetaSpace metanyelv validálásának lépéseit és követelményeit foglalja össze.",
+    "summary_en": "The document summarizes the steps and requirements for validating the MetaSpace meta-language."
+  },
+  "docs\\validation\\Útmutató_ A MetaSpace fájlok digitális hitelesítése (SHA-256).rtf": {
+    "path": "docs/validation/Útmutató_ A MetaSpace fájlok digitális hitelesítése (SHA-256).rtf",
+    "name": "Útmutató_ A MetaSpace fájlok digitális hitelesítése (SHA-256).rtf",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A fájl a MetaSpace fájlok digitális hitelesítésének SHA-256 algoritmusával foglalkozik. Részletes útmutatást nyújt a digitális aláírások és hitelesítések folyamatáról, valamint a szükséges lépésekről.",
+    "description_en": "The file discusses the digital authentication of MetaSpace files using the SHA-256 algorithm. It provides a detailed guide on the processes of digital signatures and authentications, as well as the necessary steps involved.",
+    "summary_hu": "A fájl a MetaSpace fájlok digitális hitelesítéséről szól, bemutatva a SHA-256 algoritmus használatát.",
+    "summary_en": "The file is about the digital authentication of MetaSpace files, showcasing the use of the SHA-256 algorithm."
+  },
+  "extract_all_content.js": {
+    "path": "extract_all_content.js",
+    "name": "extract_all_content.js",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy JavaScript program, amely különböző fájlformátumok, például PDF, DOCX és szöveges fájlok tartalmának kinyerésére szolgál. A program rekurzívan bejárja a megadott könyvtárat, és feldolgozza a támogatható fájlokat, miközben figyelmen kívül hagyja a rendszerfájlokat és könyvtárakat.",
+    "description_en": "The file is a JavaScript program designed to extract content from various file formats, such as PDF, DOCX, and text files. It recursively traverses the specified directory and processes supported files while ignoring system files and directories.",
+    "summary_hu": "A fájl egy JavaScript alapú eszköz, amely fájlok tartalmának kinyerésére szolgál.",
+    "summary_en": "The file is a JavaScript-based tool for extracting content from files."
+  },
+  "file_contents.json": {
+    "path": "file_contents.json",
+    "name": "file_contents.json",
+    "category": null,
+    "subcategory": null,
+    "description_hu": "",
+    "description_en": "",
+    "summary_hu": "",
+    "summary_en": ""
+  },
+  "fix_all_chars_direct.js": {
+    "path": "fix_all_chars_direct.js",
+    "name": "fix_all_chars_direct.js",
+    "category": "docs/technical",
+    "subcategory": null,
+    "description_hu": "A fájl egy JavaScript program, amely HTML fájlokban és JSON adatokban található hibás karakterek javítására szolgál. A program a megadott karaktercserék alapján végzi el a javításokat, és a módosított tartalmat visszaírja az eredeti fájlba.",
+    "description_en": "The file is a JavaScript program designed to fix erroneous characters found in HTML files and JSON data. It applies specified character replacements and writes the modified content back to the original file.",
+    "summary_hu": "A fájl hibás karakterek javítására szolgáló JavaScript programot tartalmaz.",
+    "summary_en": "The file contains a JavaScript program for correcting erroneous characters."
+  },
+  "fix_encoding.py": {
+    "path": "fix_encoding.py",
+    "name": "fix_encoding.py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy Python szkript, amely a latin-1 kódolású 'index.html' fájl tartalmát olvassa be, majd azt UTF-8 kódolással írja ki. Ez a folyamat gyakran szükséges, hogy elkerüljük a karakterkódolási problémákat.",
+    "description_en": "The file is a Python script that reads the content of the 'index.html' file encoded in latin-1 and writes it out in UTF-8 encoding. This process is often necessary to avoid character encoding issues.",
+    "summary_hu": "A szkript a fájlok kódolásának átkonvertálására szolgál.",
+    "summary_en": "The script is used for converting file encodings."
+  },
+  "generate_summaries.js": {
+    "path": "generate_summaries.js",
+    "name": "generate_summaries.js",
+    "category": "assets",
+    "subcategory": null,
+    "description_hu": "A fájl egy JavaScript program, amely OpenAI API-t használ a fájlok tartalmának elemzésére és kivonatok generálására. A program a fájlok típusát is meghatározza, és a meglévő metaadatokat kezeli.",
+    "description_en": "The file is a JavaScript program that uses the OpenAI API to analyze file contents and generate summaries. It also determines the types of files and manages existing metadata.",
+    "summary_hu": "A fájl egy OpenAI API-t használó JavaScript program, amely fájlok elemzésére és kivonatok generálására szolgál.",
+    "summary_en": "The file is a JavaScript program that utilizes the OpenAI API for analyzing files and generating summaries."
+  },
+  "PROTECTED_FILES_LIST.md": {
+    "path": "PROTECTED_FILES_LIST.md",
+    "name": "PROTECTED_FILES_LIST.md",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A fájl a 'Titkos Mag' felépítéséről szól, amely üzleti titokként védendő a versenytársak elől. A dokumentum tartalmazza a monopólium stratégiát és a fejlesztési roadmapot, amely csak belső használatra készült.",
+    "description_en": "The file discusses the structure of the 'Secret Core', which is to be protected as a business secret from competitors. It includes monopoly strategy and development roadmap, intended for internal use only.",
+    "summary_hu": "A fájl a Titkos Mag felépítését és védelmét taglalja.",
+    "summary_en": "The file outlines the structure and protection of the Secret Core."
+  },
+  "README.md": {
+    "path": "README.md",
+    "name": "README.md",
+    "category": "assets",
+    "subcategory": null,
+    "description_hu": "A fájl egy dinamikus fájlkezelő rendszert mutat be, amely OpenAI integrációval rendelkezik a MetaSpace projekthez. A rendszer lehetővé teszi a fájlok keresését, feltöltését és automatikus kategorizálását.",
+    "description_en": "The file presents a dynamic file management system integrated with OpenAI for the MetaSpace project. The system allows for file searching, uploading, and automatic categorization.",
+    "summary_hu": "A fájlkezelő rendszer leírása és telepítési útmutatója található benne.",
+    "summary_en": "The file contains a description of the file management system and installation instructions."
+  },
+  "SECURITY_ANALYSIS.md": {
+    "path": "SECURITY_ANALYSIS.md",
+    "name": "SECURITY_ANALYSIS.md",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl a MetaSpace szigorúan titkos tartalmának biztonsági elemzését tartalmazza, amelyben a legmagasabb védelmi szintű fájlok részletezése található, beleértve a kritikus szoftverkomponenseket és azok védelmi intézkedéseit.",
+    "description_en": "The file contains a security analysis of MetaSpace's strictly confidential content, detailing the highest protection level files, including critical software components and their protection measures.",
+    "summary_hu": "A fájl a MetaSpace legmagasabb védelmi szintű fájljait és azok védelmét elemzi.",
+    "summary_en": "The file analyzes the highest protection level files of MetaSpace and their security measures."
+  },
+  "SECURITY_INTEGRATION_GUIDE.md": {
+    "path": "SECURITY_INTEGRATION_GUIDE.md",
+    "name": "SECURITY_INTEGRATION_GUIDE.md",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A fájl a védelmi információk integrálásáról szól az index.html-be, beleértve a CSS stílusok és szűrő gombok hozzáadását. Emellett részletezi a fájlokhoz szükséges security mezők hozzáadását és a renderelési logika frissítését.",
+    "description_en": "The file discusses the integration of security information into index.html, including the addition of CSS styles and filter buttons. It also details the need to add security fields to files and update the rendering logic.",
+    "summary_hu": "A fájl a védelmi információk integrálásának folyamatát írja le az index.html-be.",
+    "summary_en": "The file describes the process of integrating security information into index.html."
+  },
+  "server.js": {
+    "path": "server.js",
+    "name": "server.js",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy Node.js szerver alkalmazás, amely az Express keretrendszert használja. Fő funkciója fájlok feltöltése és feldolgozása, beleértve a PDF és DOCX fájlok szövegének kiolvasását.",
+    "description_en": "The file is a Node.js server application that uses the Express framework. Its main function is to upload and process files, including extracting text from PDF and DOCX files.",
+    "summary_hu": "A server.js fájl egy fájlkezelő szerver alkalmazás, amely különböző fájlformátumok kezelésére képes.",
+    "summary_en": "The server.js file is a file management server application capable of handling various file formats."
+  },
+  "simulations\\AF447.py": {
+    "path": "simulations/AF447.py",
+    "name": "AF447.py",
+    "category": "simulations",
+    "subcategory": null,
+    "description_hu": "Az AF447.py fájl egy Python szimulációs program, amely a sebességmérők jegesedését és a MetaSpace rendszer reakcióját modellezi. A program három szenzort szimulál, és vizsgálja a sebességmérők közötti eltéréseket, valamint grafikus megjelenítést is biztosít az eredményekről.",
+    "description_en": "The AF447.py file is a Python simulation program that models the icing of speed sensors and the reaction of the MetaSpace system. The program simulates three sensors and examines the discrepancies between the speed measurements, providing a graphical representation of the results.",
+    "summary_hu": "A fájl egy szimulációs program, amely a sebességmérők jegesedését és a MetaSpace válaszát modellezi.",
+    "summary_en": "The file is a simulation program that models the icing of speed sensors and the response of the MetaSpace system."
+  },
+  "simulations\\bank.py": {
+    "path": "simulations/bank.py",
+    "name": "bank.py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy kereskedési motor szimulátor, amely a pénzügyi integritás ellenőrzésére szolgál. Az algoritmus képes kezelni a kereskedési megbízásokat, és megakadályozza a túlzott kitettséget és a rendelési gyakoriság túllépését.",
+    "description_en": "The file is a trading engine simulator designed to check financial integrity. The algorithm can handle trade orders and prevents excessive exposure and exceeding order frequency limits.",
+    "summary_hu": "A fájl egy kereskedési motor szimulációját tartalmazza, amely a pénzügyi integritás megőrzésére összpontosít.",
+    "summary_en": "The file contains a simulation of a trading engine focused on maintaining financial integrity."
+  },
+  "simulations\\MetaSpace_AF447_Divergencia.py": {
+    "path": "simulations/MetaSpace_AF447_Divergencia.py",
+    "name": "MetaSpace_AF447_Divergencia.py",
+    "category": "simulations",
+    "subcategory": null,
+    "description_hu": "A fájl egy Python szimulációt tartalmaz, amely az AF447 repülőgép sebességmérőinek jegesedését és a MetaSpace rendszer reakcióját modellezi. A szimuláció során három sebességmérő adatait generálja, és figyeli a különbségeket, hogy detektálja a hibákat.",
+    "description_en": "The file contains a Python simulation that models the icing of the speed sensors of the AF447 aircraft and the reaction of the MetaSpace system. It generates data for three speed sensors and monitors the differences to detect faults.",
+    "summary_hu": "A fájl egy AF447 repülőgép sebességmérőinek jegesedését szimuláló Python programot tartalmaz.",
+    "summary_en": "The file contains a Python program simulating the icing of the speed sensors of the AF447 aircraft."
+  },
+  "simulations\\sitl_validation_tool.py": {
+    "path": "simulations/sitl_validation_tool.py",
+    "name": "sitl_validation_tool.py",
+    "category": "core",
+    "subcategory": null,
+    "description_hu": "A fájl egy Python script, amely az ArduPilot SITL-hez csatlakozik, és monitorozza a GPS pozíciók közötti divergenciát, valamint szimulálja a GPS spoofing támadást. A MetaSpace keretrendszert használja a rendszer integritásának ellenőrzésére.",
+    "description_en": "The file is a Python script that connects to the ArduPilot SITL, monitoring the divergence between GPS positions and simulating GPS spoofing attacks. It utilizes the MetaSpace framework to verify system integrity.",
+    "summary_hu": "A script az ArduPilot SITL-hez való csatlakozást és a GPS pozíciók ellenőrzését végzi.",
+    "summary_en": "The script connects to the ArduPilot SITL and performs checks on GPS positions."
+  },
+  "specs\\AF447_Integrity_Layer.bio": {
+    "path": "specs/AF447_Integrity_Layer.bio",
+    "name": "AF447_Integrity_Layer.bio",
+    "category": "specs",
+    "subcategory": null,
+    "description_hu": "Ez a fájl egy Bio specifikációt tartalmaz, amely az Air France 447 repülőgép balesetének megelőzésére vonatkozik. A dokumentum a Triple Redundant Velocity Shield (TRVS) modul működését és invariánsait írja le, beleértve a sebességmérők közötti eltérések kezelését és a vészhelyzeti vezérlési logikát.",
+    "description_en": "This file contains a Bio specification related to the prevention of the Air France 447 accident. It describes the operation and invariants of the Triple Redundant Velocity Shield (TRVS) module, including the handling of discrepancies between speed sensors and the emergency control logic.",
+    "summary_hu": "A fájl az Air France 447 balesetének megelőzésére vonatkozó Bio specifikációt tartalmaz, amely a sebességmérők közötti eltérések kezelésére összpontosít.",
+    "summary_en": "The file contains a Bio specification aimed at preventing the Air France 447 accident, focusing on the handling of discrepancies between speed sensors."
+  },
+  "specs\\bank.bio": {
+    "path": "specs/bank.bio",
+    "name": "bank.bio",
+    "category": "specs",
+    "subcategory": null,
+    "description_hu": "A fájl egy Bio specifikációt tartalmaz, amely a Knight Capital Prevention esettanulmány keretében a magas frekvenciájú kereskedés védelmét célozza. A dokumentum definiálja a kereskedési integritás cellát, amely különböző bemeneti és kimeneti paramétereket, invariánsokat és állapotokat tartalmaz a kereskedési folyamatok biztonságának fenntartására.",
+    "description_en": "The file contains a Bio specification aimed at preventing issues in high-frequency trading, as part of the Knight Capital Prevention case study. It defines a trading integrity cell with various input and output parameters, invariants, and states to ensure the safety of trading processes.",
+    "summary_hu": "A fájl a magas frekvenciájú kereskedés védelmét szolgáló Bio specifikációt tartalmaz.",
+    "summary_en": "The file contains a Bio specification designed to protect high-frequency trading."
+  },
+  "specs\\repuloautomata.bio": {
+    "path": "specs/repuloautomata.bio",
+    "name": "repuloautomata.bio",
+    "category": "specs",
+    "subcategory": null,
+    "description_hu": "A fájl egy egyszerűsített repülőautomata bio specifikációját tartalmazza, amely meghatározza az interfészeket, invariánsokat és állapotgépeket. A dokumentum részletezi a repülőautomata működését, beleértve a biztonsági és energiafenntartási szabályokat.",
+    "description_en": "The file contains the bio specification for a simplified unmanned aerial vehicle (UAV), defining interfaces, invariants, and state machines. It details the operation of the UAV, including safety and energy conservation rules.",
+    "summary_hu": "A fájl egy repülőautomata működését leíró bio specifikációt tartalmaz.",
+    "summary_en": "The file contains a bio specification describing the operation of an unmanned aerial vehicle."
+  },
+  "specs\\uav_integrity_shield.bio": {
+    "path": "specs/uav_integrity_shield.bio",
+    "name": "uav_integrity_shield.bio",
+    "category": "specs",
+    "subcategory": null,
+    "description_hu": "A fájl egy UAV navigációs integritásvédelmi rendszer bio specifikációját tartalmazza, amely definiálja a bemeneti és kimeneti jeleket, a rendszer invariánsait és a különböző állapotait. A rendszer célja a GPS és INS adatok integritásának ellenőrzése és a biztonsági riasztások kezelése.",
+    "description_en": "The file contains a bio specification for a UAV navigation integrity shield system, defining the input and output signals, the system invariants, and its various states. The system aims to verify the integrity of GPS and INS data and manage safety alarms.",
+    "summary_hu": "A fájl egy UAV navigációs rendszer integritásvédelmi specifikációját írja le, amely a GPS és INS adatok biztonságát ellenőrzi.",
+    "summary_en": "The file describes a UAV navigation system integrity shield specification that verifies the safety of GPS and INS data."
+  },
+  "update_index_with_content.js": {
+    "path": "update_index_with_content.js",
+    "name": "update_index_with_content.js",
+    "category": "assets",
+    "subcategory": null,
+    "description_hu": "A fájl egy JavaScript kódot tartalmaz, amely frissíti az index.html fájlt a fájlok tartalmával. A kód különböző fájlokból kinyeri a tartalmakat, és ezeket beilleszti az index.html-be, miközben biztonsági másolatot is készít.",
+    "description_en": "The file contains JavaScript code that updates the index.html file with the contents of various files. The code extracts contents from different files and inserts them into index.html while also creating a backup.",
+    "summary_hu": "A fájl JavaScript kódot tartalmaz, amely frissíti az index.html fájlt.",
+    "summary_en": "The file contains JavaScript code that updates the index.html file."
+  },
+  "docs/validation/MetaSpace Validációs Helyzetjelentés és Stratégiai Útiterv.rtf": {
+    "path": "docs/validation/MetaSpace Validációs Helyzetjelentés és Stratégiai Útiterv.rtf",
+    "name": "MetaSpace Validációs Helyzetjelentés és Stratégiai Útiterv.rtf",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl egy validációs helyzetjelentést és stratégiai útitervet tartalmaz, amely a MetaSpace projekthez kapcsolódik. A dokumentum célja a projekt előrehaladásának nyomon követése és a jövőbeli lépések megtervezése.",
+    "description_en": "The file contains a validation report and strategic roadmap related to the MetaSpace project. The document aims to track the project's progress and plan future steps.",
+    "summary_hu": "A fájl a MetaSpace projekt validációs helyzetjelentését és stratégiai útitervét tartalmazza.",
+    "summary_en": "The file contains the validation report and strategic roadmap for the MetaSpace project."
+  },
+  "docs/technical/FORMAL_SEMANTICS.md": {
+    "path": "docs/technical/FORMAL_SEMANTICS.md",
+    "name": "FORMAL_SEMANTICS.md",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A dokumentum a .bio metalanguage formális szemantikáját és logikai specifikációját határozza meg, amely egy 'Zero-Side-Effect' környezetet teremt. A logika elsőrendű logikán és elméletek moduláris kielégíthetőségén alapul.",
+    "description_en": "The document defines the formal semantics and logic specification of the .bio metalanguage, creating a 'Zero-Side-Effect' environment. The logic is based on first-order logic and satisfiability modulo theories.",
+    "summary_hu": "A fájl a .bio metalanguage formális szemantikáját és logikai alapjait tárgyalja, beleértve a matematikai alapokat és a determinisztikus kimenetek bizonyítását.",
+    "summary_en": "The file discusses the formal semantics and logical foundations of the .bio metalanguage, including mathematical foundations and proof of deterministic outputs."
+  },
+  "docs/validation/SMT_CERTIFICATE.md": {
+    "path": "docs/validation/SMT_CERTIFICATE.md",
+    "name": "SMT_CERTIFICATE.md",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl egy formális verifikációs tanúsítványt tartalmaz, amely megerősíti, hogy a MetaSpace .bio specifikáció szigorú állapot-tér elemzésen esett át. A cél a fizikai határok azonosítása és a logikai ellentmondások észlelése volt.",
+    "description_en": "The file contains a formal verification certificate confirming that the MetaSpace .bio specification has undergone rigorous state-space analysis. The objective was to identify physical boundaries and detect logical contradictions.",
+    "summary_hu": "A MetaSpace SMT motor sikeresen teljesítette a formális logikai bizonyítás fázisát, és készen áll a hardver szintézisre.",
+    "summary_en": "The MetaSpace SMT engine has successfully passed the formal logic proof phase and is ready for hardware synthesis."
+  },
+  "docs/theory/METASPACE_VS_TRADITIONAL.md": {
+    "path": "docs/theory/METASPACE_VS_TRADITIONAL.md",
+    "name": "METASPACE_VS_TRADITIONAL.md",
+    "category": "docs",
+    "subcategory": "theory",
+    "description_hu": "A fájl a MetaSpace és a hagyományos autopilot rendszerek közötti különbségeket elemzi, különös figyelmet fordítva a szenzor manipulációval szembeni ellenállásra. A MetaSpace megközelítése determinisztikus, míg a hagyományos rendszerek valószínűségi modellekre támaszkodnak.",
+    "description_en": "The file analyzes the differences between MetaSpace and traditional autopilot systems, focusing on resilience against sensor manipulation. The MetaSpace approach is deterministic, while traditional systems rely on probabilistic models.",
+    "summary_hu": "A fájl a MetaSpace rendszerek előnyeit mutatja be a hagyományos autopilot rendszerekkel szemben, különös hangsúlyt fektetve a szenzorokkal szembeni manipuláció elleni védelemre.",
+    "summary_en": "The file highlights the advantages of MetaSpace systems over traditional autopilot systems, with a particular emphasis on protection against sensor manipulation."
+  },
+  "docs/validation/ASSURANCE_CASE.md": {
+    "path": "docs/validation/ASSURANCE_CASE.md",
+    "name": "ASSURANCE_CASE.md",
+    "category": "docs",
+    "subcategory": "validation",
+    "description_hu": "A fájl a MetaSpace projekt operatív biztosítási esetét tárgyalja, amely a rendszer navigációs integritásának matematikai garantálására összpontosít. A dokumentum részletezi a logikai bizonyítékfát, az operatív visszajelzési hurkot és a végső tanúsítási igényt.",
+    "description_en": "The file discusses the operational assurance case of the MetaSpace project, focusing on mathematically guaranteeing system navigation integrity. It details the logical proof tree, the operational feedback loop, and the final certification claim.",
+    "summary_hu": "A MetaSpace projekt operatív biztosítási esete matematikai bizonyítékokat és folyamatos önellenőrzést tartalmaz.",
+    "summary_en": "The operational assurance case of the MetaSpace project includes mathematical proofs and continuous self-certification."
+  },
+  "docs/technical/HARA_REPORT.md": {
+    "path": "docs/technical/HARA_REPORT.md",
+    "name": "HARA_REPORT.md",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A fájl a MetaSpace UAV alkalmazás biztonsági integritási szintjét és a kockázatelemzést tárgyalja, beleértve a különböző veszélyprofilokat és azok mérséklési mechanizmusait. A dokumentum a biztonsági követelmények nyomon követhetőségét is bemutatja.",
+    "description_en": "The file discusses the safety integrity level of the MetaSpace UAV application and the risk analysis, including various hazard profiles and their mitigation mechanisms. It also presents the traceability of safety requirements.",
+    "summary_hu": "A dokumentum megerősíti, hogy a MetaSpace architektúra alkalmas a biztonsági kritikus tanúsítvány megszerzésére, mivel minden azonosított veszély matematikailag bizonyított mérséklési mechanizmushoz van hozzárendelve.",
+    "summary_en": "The document confirms that the MetaSpace architecture is suitable for safety-critical certification, as every identified hazard is mapped to a mathematically proven mitigation mechanism."
+  },
+  "docs/strategic/VALIDATION_ROADMAP.md": {
+    "path": "docs/strategic/VALIDATION_ROADMAP.md",
+    "name": "VALIDATION_ROADMAP.md",
+    "category": "docs",
+    "subcategory": "strategic",
+    "description_hu": "A dokumentum a MetaSpace projekt jelenlegi állapotát és a teljes matematikai bizonyíték és ipari tanúsítás eléréséhez szükséges stratégiai ütemtervet rögzíti. A projekt jelenleg a TRL 4 (Technológiai Érettségi Szint) állapotában van, és a különböző szakaszok előrehaladását részletezi.",
+    "description_en": "This document records the current status of the MetaSpace project and outlines the strategic roadmap for achieving full mathematical proof and industry certification. The project is currently at TRL 4 (Technology Readiness Level), detailing the progress across various stages.",
+    "summary_hu": "A MetaSpace projekt állapotát és a matematikai bizonyíték eléréséhez szükséges lépéseket tartalmazza.",
+    "summary_en": "It outlines the status of the MetaSpace project and the steps needed to achieve mathematical proof."
+  },
+  "docs/technical/FMEA_REPORT.md": {
+    "path": "docs/technical/FMEA_REPORT.md",
+    "name": "FMEA_REPORT.md",
+    "category": "docs",
+    "subcategory": "technical",
+    "description_hu": "A fájl a MetaSpace rendszer FMEA (Failure Mode and Effects Analysis) elemzését tartalmazza, amely a fizikai és logikai hibák hatását vizsgálja a DroneIntegrity rendszerre. Az elemzés során különböző komponensek hibamódjait és azok következményeit részletezik.",
+    "description_en": "The file contains the FMEA (Failure Mode and Effects Analysis) for the MetaSpace system, analyzing the impact of physical and logical failures on the DroneIntegrity system. It details various components' failure modes and their consequences.",
+    "summary_hu": "A fájl a MetaSpace rendszer hibaanalízisét tartalmazza, amely a rendszer biztonságát és a hibák kezelését vizsgálja.",
+    "summary_en": "The file presents a failure analysis of the MetaSpace system, examining its safety and failure management."
+  },
+  "docs/patent/INVENTION_STATEMENT.md": {
+    "path": "docs/patent/INVENTION_STATEMENT.md",
+    "name": "INVENTION_STATEMENT.md",
+    "category": "docs",
+    "subcategory": "patent",
+    "description_hu": "A fájl a Citrom Méda LTD szellemi tulajdonát és innovációs nyilatkozatát tartalmazza, amelyben a MetaSpace.bio technológia szabadalmi bejegyzésére vonatkozó információk találhatók. A dokumentum részletezi a szabadalom jogi megjegyzéseit, a szerzői jog védelmét, valamint a technikai újdonságokat és a kereskedelmi titkokat.",
+    "description_en": "The file contains the intellectual property and innovation statement of Citrom Méda LTD, detailing the patent registration information for the MetaSpace.bio technology. It outlines legal notices, proof of authorship, technical novelties, and trade secrets.",
+    "summary_hu": "A dokumentum a MetaSpace.bio szabadalmi nyilatkozatát és a kapcsolódó jogi információkat tartalmazza.",
+    "summary_en": "The document contains the patent statement for MetaSpace.bio along with related legal information."
+  },
+  "docs/strategic/METASPACE_VERDICT_GITHUB_PLAN.md": {
+    "path": "docs/strategic/METASPACE_VERDICT_GITHUB_PLAN.md",
+    "name": "METASPACE_VERDICT_GITHUB_PLAN.md",
+    "category": "docs",
+    "subcategory": "strategic",
+    "description_hu": "A fájl a MetaSpace.bio projekt újrafogalmazott verdiktjét és GitHub javítási tervét tartalmazza, amely az igény-vezérelt audit logikájára épít. Részletesen elemzi a precíziós mezőgazdaság, drón kiszállítás és katonai UAV igényeit, valamint a szükséges validációs lépéseket.",
+    "description_en": "The file contains the revised verdict and GitHub repair plan for the MetaSpace.bio project, based on demand-driven audit logic. It analyzes the requirements for precision agriculture, drone delivery, and military UAVs, as well as the necessary validation steps.",
+    "summary_hu": "A fájl a MetaSpace.bio projekt igény-vezérelt auditját és a GitHub-on való megvalósítási tervét foglalja össze.",
+    "summary_en": "The file summarizes the demand-driven audit of the MetaSpace.bio project and the implementation plan on GitHub."
+  },
+  "docs/strategic/MetaSpace.bio_ Stratégiai Újrahangolási Terv (v2.5).md": {
+    "path": "docs/strategic/MetaSpace.bio_ Stratégiai Újrahangolási Terv (v2.5).md",
+    "name": "MetaSpace.bio_ Stratégiai Újrahangolási Terv (v2.5).md",
+    "category": "docs",
+    "subcategory": "strategic",
+    "description_hu": "A dokumentum a MetaSpace.bio projekt stratégiai újrahangolási tervét tartalmazza, amely a Perplexity-kritika és a 'Demand-Driven' audit utáni szükséges korrekciókat rögzíti. Főbb témái közé tartozik a kommunikációs paradigmaváltás, a README.md kritikus pontjai, struktúrális korrekciók és a projekt ütemtervének pontosítása.",
+    "description_en": "The document contains the strategic realignment plan for the MetaSpace.bio project, recording necessary corrections following the Perplexity critique and the 'Demand-Driven' audit. Key topics include the communication paradigm shift, critical points of the README.md, structural corrections, and the clarification of the project timeline.",
+    "summary_hu": "A MetaSpace.bio projekt stratégiai újrahangolási terve a szükséges korrekciókat és a projekt ütemtervét tartalmazza.",
+    "summary_en": "The strategic realignment plan for the MetaSpace.bio project includes necessary corrections and the project timeline."
+  }
+}

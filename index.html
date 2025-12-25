@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaSpace-Drone-Shield | Technical Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: 'dark',
+            themeVariables: {
+                primaryColor: '#3b82f6',
+                primaryTextColor: '#e2e8f0',
+                primaryBorderColor: '#1e293b',
+                lineColor: '#94a3b8',
+                secondaryColor: '#141b2d',
+                tertiaryColor: '#1a2332'
+            }
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #141b2d;
+            --bg-tertiary: #1a2332;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --accent-primary: #3b82f6;
+            --accent-success: #10b981;
+            --accent-warning: #f59e0b;
+            --accent-danger: #ef4444;
+            --border-color: #1e293b;
+            --unsat-color: #ef4444;
+            --sat-color: #10b981;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        header .subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: 500;
+            margin-left: 15px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        .status-badge.trl4 {
+            border-color: var(--accent-warning);
+            color: var(--accent-warning);
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .card h2 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .unsat-result {
+            background: var(--bg-tertiary);
+            border: 2px solid var(--unsat-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+        }
+
+        .unsat-result .label {
+            font-size: 0.85em;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .unsat-result .value {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: var(--unsat-color);
+            font-family: 'Courier New', monospace;
+        }
+
+        .unsat-result .description {
+            margin-top: 10px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .performance-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .performance-table th,
+        .performance-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .performance-table th {
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .performance-table td {
+            color: var(--text-primary);
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .performance-table tr:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .metric-value {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .use-case {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: var(--bg-tertiary);
+            border-left: 3px solid var(--accent-primary);
+            border-radius: 4px;
+        }
+
+        .use-case h3 {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .use-case .details {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 8px;
+        }
+
+        .simulation-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+
+        .simulation-item h3 {
+            font-size: 1em;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .simulation-item .path {
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+
+        .simulation-item .description {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        .simulation-item .tags {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .tag {
+            padding: 3px 8px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            font-size: 0.75em;
+            color: var(--text-secondary);
+        }
+
+        .security-notice {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-primary);
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .security-notice h3 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+        }
+
+        .security-notice p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .security-notice code {
+            background: var(--bg-primary);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            color: var(--accent-primary);
+        }
+
+        .limitations {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--accent-warning);
+            border-radius: 4px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .limitations h3 {
+            font-size: 1em;
+            margin-bottom: 15px;
+            color: var(--accent-warning);
+        }
+
+        .limitations ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .limitations li {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .limitations li:before {
+            content: "⚠";
+            position: absolute;
+            left: 0;
+            color: var(--accent-warning);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+
+        .link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+
+        .link:hover {
+            border-bottom-color: var(--accent-primary);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>MetaSpace.bio</h1>
+            <div class="subtitle">
+                Universal Integrity Layer
+                <span class="status-badge trl4">TRL-4</span>
+            </div>
+            <div style="margin-top: 10px; color: var(--text-secondary); font-size: 0.9em;">
+                Formal Verification-Based GPS Spoofing Detection for Autonomous UAVs
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="unsat-result">
+            <div class="label">SMT Solver Result (Example)</div>
+            <div class="value">UNSAT</div>
+            <div class="description">
+                Constraints unsatisfiable → GPS spoofing detected (at logical model level)
+            </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 30px;">
+            <h2>Security as a Mathematical Constraint</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 20px; line-height: 1.6;">
+                MetaSpace.bio provides a deterministic membrane for mission-critical systems, enforcing unbreakable laws across <strong>Space, Time, and Energy</strong>.
+            </p>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">What is MetaSpace.bio?</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 15px; line-height: 1.6;">
+                <strong>MetaSpace.bio</strong> is a <strong>logical metalanguage</strong> (formal specification language) that provides a <strong>Universal Integrity Layer</strong> for mission-critical systems. It enforces physical invariants through formal verification (SMT solvers) and compiles to hardware-level logic gates.
+            </p>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">Problem Domain</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 15px; line-height: 1.6;">
+                <strong>Application Domain:</strong> Autonomous UAV (Unmanned Aerial Vehicle) navigation integrity<br>
+                <strong>Problem:</strong> GPS spoofing attacks can compromise UAV navigation, causing fly-away, crashes, or unauthorized control<br>
+                <strong>Challenge:</strong> Existing ML/heuristic-based detectors are vulnerable to adversarial attacks and lack formal guarantees
+            </p>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">Solution Domain</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 15px; line-height: 1.6;">
+                <strong>Approach:</strong> Formal verification-based detection using Satisfiability Modulo Theories (SMT) solvers<br>
+                <strong>Method:</strong> Kinematic invariant checking - physical laws (acceleration, velocity, position constraints) that must hold true<br>
+                <strong>Implementation:</strong> MetaSpace.bio logical metalanguage for invariant specifications, compiled to hardware-level logic gates
+            </p>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">What Makes It Novel?</h3>
+            <ul style="color: var(--text-secondary); font-size: 0.9em; line-height: 1.8; margin-left: 20px;">
+                <li><strong>Novel Application:</strong> Application of SMT solvers to real-time GPS spoofing detection on resource-constrained UAV platforms</li>
+                <li><strong>Novel Integration:</strong> Integration of formal verification (Z3 SMT solver) with real-time UAV flight control</li>
+                <li><strong>Novel Logical Metalanguage:</strong> MetaSpace.bio - a logical metalanguage tailored for invariant-based integrity checking</li>
+                <li><strong>Novel Approach:</strong> Formal invariant-based detection provides mathematical guarantees (at logical model level) vs. probabilistic ML/heuristic approaches</li>
+            </ul>
+            <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.85em;">
+                <a href="docs/NOVELTY_ANALYSIS.md" class="link" target="_blank">View detailed novelty analysis →</a>
+            </p>
+        </div>
+
+        <div class="card" style="margin-bottom: 30px;">
+            <h2>MetaSpace.bio Language Specification</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 20px; line-height: 1.6;">
+                <strong>Universal Specification v2.0</strong> - Governing every physical dimension (Space, Time, and Metabolic Reserves) within a single formal specification.
+            </p>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">Language Syntax</h3>
+            <pre style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 15px; overflow-x: auto; font-size: 0.85em; color: var(--text-primary);"><code>CELL CellName {
+    INTERFACE {
+        INPUT variable_name: TYPE;
+        OUTPUT variable_name: TYPE;
+    }
+    
+    INVARIANTS {
+        RULE rule_name:
+            constraint_expression;
+    }
+    
+    FUZZY_LOGIC {
+        ZONE zone_name:
+            IF condition THEN action;
+    }
+    
+    STATES {
+        STATE StateName {
+            variable = value;
+            TRANSITION TO NextState IF condition;
+        }
+    }
+}</code></pre>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">Example: Universal Machine Guard</h3>
+            <pre style="background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 4px; padding: 15px; overflow-x: auto; font-size: 0.85em; color: var(--text-primary);"><code>CELL UniversalMachineGuard {
+  INTERFACE {
+    INPUT gps_pos, ins_pos: VECTOR2D;
+    INPUT battery_voltage: FLOAT;
+    INPUT last_packet: TIMESTAMP;
+  }
+  
+  INVARIANTS {
+    RULE spatial_integrity: DISTANCE(gps_pos, ins_pos) <= 50.0;
+    RULE temporal_integrity: STALENESS(last_packet) < 0.1s;
+    RULE battery_integrity: battery_voltage > 11.2;
+  }
+  
+  STATES {
+    STATE Operational { lock = 0; }
+    STATE ShieldEngaged TYPE SAFETY_LOCK { lock = 1; }
+    
+    TRANSITION FROM Operational TO ShieldEngaged 
+      IF spatial_integrity == FALSE OR battery_integrity == FALSE;
+  }
+}</code></pre>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 15px; margin-top: 20px;">Language Features</h3>
+            <ul style="color: var(--text-secondary); font-size: 0.9em; line-height: 1.8; margin-left: 20px;">
+                <li><strong>Spatial & Temporal Guard:</strong> Protects against GNSS Spoofing and Replay Attacks</li>
+                <li><strong>Metabolic Energy Reserves:</strong> Ensures mission-abortion before physical collapse</li>
+                <li><strong>Graceful Degradation:</strong> Uses Fuzzy Logic Zones for deterministic heuristics</li>
+            </ul>
+            <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.85em;">
+                <a href="docs/technical/FORMAL_SEMANTICS.md" class="link" target="_blank">View full language specification →</a> | 
+                <a href="specs/README.md" class="link" target="_blank">Example specifications →</a>
+            </p>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <h2>Performance Metrics</h2>
+                <table class="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Scenario</th>
+                            <th>Detection Rate</th>
+                            <th>Latency</th>
+                            <th>False Positive</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Overt Spoofing</td>
+                            <td>98.5%</td>
+                            <td>0.4s</td>
+                            <td>&lt; 0.1%</td>
+                        </tr>
+                        <tr>
+                            <td>Covert Spoofing (0.1°/s)</td>
+                            <td>85-92%</td>
+                            <td>0.8s</td>
+                            <td>&lt; 0.5%</td>
+                        </tr>
+                        <tr>
+                            <td>Normal Flight</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>&lt; 0.1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-color);">
+                    <div class="metric">
+                        <span class="metric-label">Software Prototype Latency</span>
+                        <span class="metric-value">~12 ms</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">Target Hardware (FPGA)</span>
+                        <span class="metric-value">0.0005 ms</span>
+                    </div>
+                </div>
+                <p style="margin-top: 15px; color: var(--text-secondary); font-size: 0.85em;">
+                    <em>Note: All performance data from simulation. Hardware validation in progress.</em>
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Use Cases</h2>
+                <div class="use-case">
+                    <h3>✓ Precision Agriculture</h3>
+                    <div class="details">
+                        SIL 2 (ISO 13849-1) | Detection: &lt; 2s | Accuracy: &gt; 95%
+                    </div>
+                </div>
+                <div class="use-case">
+                    <h3>✓ Autonomous Delivery</h3>
+                    <div class="details">
+                        SIL 3 (FAA Part 135) | Detection: &lt; 1s | Accuracy: &gt; 99% (target, validation in progress)
+                    </div>
+                </div>
+                <div class="use-case">
+                    <h3>✓ Military UAV</h3>
+                    <div class="details">
+                        SIL 3 (military) | Detection: &lt; 0.5s | Adversarial ML-resistant
+                    </div>
+                </div>
+                <div class="use-case" style="border-left-color: var(--accent-danger); opacity: 0.7;">
+                    <h3>✗ Zero-Delay Meaconing</h3>
+                    <div class="details">
+                        Not supported: Impossible at receiver level (mathematical limit)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Operational Benchmarking</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 20px; line-height: 1.6;">
+                Real-time impact analysis: MetaSpace.bio logic versus traditional probabilistic systems (EKF) in mission-critical failure scenarios.
+            </p>
+            
+            <div class="simulation-item" style="border-left: 4px solid var(--accent-danger);">
+                <h3>Aviation Integrity: AF447 Case Study</h3>
+                <div class="path">src/python/simulation/af447_divergence_sim.py</div>
+                <div class="description">
+                    <strong>Scenario:</strong> Air France 447 Pitot tube icing event<br>
+                    <strong>Problem:</strong> Three pitot sensors diverged due to icing, causing autopilot confusion and loss of control<br>
+                    <strong>MetaSpace Solution:</strong> Detects sensor divergence in &lt; 1ms using invariant checking, triggers hard-coded "Pitch-and-Power" safety gate<br>
+                    <strong>Result:</strong> MetaSpace.bio detects sensor failure and triggers deterministic fallback mode, preventing the cascade failure that led to AF447 crash
+                </div>
+                <div class="tags">
+                    <span class="tag">Aviation</span>
+                    <span class="tag">Case Study</span>
+                    <span class="tag">Sensor Failure</span>
+                    <span class="tag">Critical</span>
+                </div>
+            </div>
+
+            <div class="simulation-item" style="border-left: 4px solid var(--accent-warning);">
+                <h3>Financial Integrity: Knight Capital Case Study</h3>
+                <div class="path">examples/example_4_case_studies/financial_trading.py</div>
+                <div class="description">
+                    <strong>Scenario:</strong> High-Frequency Trading (HFT) glitch prevention<br>
+                    <strong>Problem:</strong> Knight Capital lost $440M in 45 minutes due to software bug causing uncontrolled order execution<br>
+                    <strong>MetaSpace Solution:</strong> Position size limits (invariant: max 20% of balance), rate limiting (invariant: max orders per cycle), logic lock activation on invariant violation<br>
+                    <strong>Result:</strong> MetaSpace.bio prevents runaway trading by enforcing position and rate limits through hardware-level logic gates
+                </div>
+                <div class="tags">
+                    <span class="tag">Fintech</span>
+                    <span class="tag">Case Study</span>
+                    <span class="tag">HFT</span>
+                    <span class="tag">General Applicability</span>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px; color: var(--text-secondary); font-size: 0.85em; font-style: italic; padding: 15px; background: var(--bg-tertiary); border-radius: 4px;">
+                <strong>Note:</strong> These case studies demonstrate the general applicability of MetaSpace.bio beyond aerospace, showing how invariant-based integrity checking can prevent catastrophic failures in any safety-critical system.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>The 5-Stage Validation Pipeline</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9em; margin-bottom: 20px; line-height: 1.6;">
+                A transparent audit trail derived from <strong>DO-178C</strong> and <strong>IEC 61508</strong> certification frameworks.
+            </p>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-top: 20px; margin-bottom: 15px;">Pipeline Flow Diagram</h3>
+            <div class="mermaid" style="background: var(--bg-primary); border-radius: 4px; padding: 20px; margin-top: 15px; margin-bottom: 30px;">
+graph LR
+    A[Stage 1:<br/>Formal Semantics Proof] -->|Validated| B[Stage 2:<br/>Tool Qualification]
+    B -->|In Progress| C[Stage 3:<br/>Safety Standard]
+    C -->|Validated| D[Stage 4:<br/>System Level]
+    D -->|In Progress| E[Stage 5:<br/>Operational Assurance]
+    
+    style A fill:#10b981,stroke:#1e293b,stroke-width:2px,color:#fff
+    style B fill:#f59e0b,stroke:#1e293b,stroke-width:2px,color:#fff
+    style C fill:#10b981,stroke:#1e293b,stroke-width:2px,color:#fff
+    style D fill:#f59e0b,stroke:#1e293b,stroke-width:2px,color:#fff
+    style E fill:#10b981,stroke:#1e293b,stroke-width:2px,color:#fff
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+                <div style="padding: 15px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 4px;">
+                    <h3 style="font-size: 0.9em; color: var(--accent-success); margin-bottom: 8px;">01 ✓ Stage 1</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 5px;"><strong>Formal Semantics Proof</strong></p>
+                    <p style="font-size: 0.8em; color: var(--text-secondary);">Language & Logic Proof (Z3 SMT-Solver validated)</p>
+                </div>
+                <div style="padding: 15px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 4px;">
+                    <h3 style="font-size: 0.9em; color: var(--accent-warning); margin-bottom: 8px;">02 🔄 Stage 2</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 5px;"><strong>Tool Qualification</strong></p>
+                    <p style="font-size: 0.8em; color: var(--text-secondary);">Compiler & Hardware Synthesis (VHDL planned)</p>
+                </div>
+                <div style="padding: 15px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 4px;">
+                    <h3 style="font-size: 0.9em; color: var(--accent-success); margin-bottom: 8px;">03 ✓ Stage 3</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 5px;"><strong>Safety Standard</strong></p>
+                    <p style="font-size: 0.8em; color: var(--text-secondary);">HARA & FMEA Analysis (ISO 26262, IEC 61508)</p>
+                </div>
+                <div style="padding: 15px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 4px;">
+                    <h3 style="font-size: 0.9em; color: var(--accent-warning); margin-bottom: 8px;">04 🔄 Stage 4</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 5px;"><strong>System Level</strong></p>
+                    <p style="font-size: 0.8em; color: var(--text-secondary);">Military Field Validation (SITL complete, hardware in progress)</p>
+                </div>
+                <div style="padding: 15px; background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: 4px;">
+                    <h3 style="font-size: 0.9em; color: var(--accent-success); margin-bottom: 8px;">05 ✓ Stage 5</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary); margin-bottom: 5px;"><strong>Operational Assurance</strong></p>
+                    <p style="font-size: 0.8em; color: var(--text-secondary);">Continuous Self-Certification (Assurance case documented)</p>
+                </div>
+            </div>
+            <p style="margin-top: 20px; color: var(--text-secondary); font-size: 0.85em;">
+                <a href="docs/strategic/VALIDATION_ROADMAP.md" class="link" target="_blank">View full validation roadmap →</a>
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>System Architecture</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 20px;">
+                <div>
+                    <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 10px;">Syntactic Level</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary);">
+                        SMT logic formulation and constraint solving (Z3)
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 10px;">Semantic Level</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary);">
+                        Real-world mapping (aircraft models, sensor models)
+                    </p>
+                </div>
+                <div>
+                    <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-bottom: 10px;">Pragmatic Level</h3>
+                    <p style="font-size: 0.85em; color: var(--text-secondary);">
+                        Concrete application (use cases, integration)
+                    </p>
+                </div>
+            </div>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-top: 30px; margin-bottom: 15px;">Three-Level Architecture Diagram</h3>
+            <div class="mermaid" style="background: var(--bg-primary); border-radius: 4px; padding: 20px; margin-top: 15px; margin-bottom: 30px;">
+graph TB
+    subgraph "Syntactic Level"
+        A[.bio Specification] --> B[SMT Logic Formulation]
+        B --> C[Z3 SMT Solver]
+    end
+    
+    subgraph "Semantic Level"
+        D[Aircraft Kinematic Model] --> E[Sensor Models]
+        E --> F[Physical Invariants]
+    end
+    
+    subgraph "Pragmatic Level"
+        G[Use Case: Precision Agriculture] --> H[Use Case: Autonomous Delivery]
+        H --> I[Use Case: Military UAV]
+    end
+    
+    C --> F
+    F --> G
+            </div>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-top: 30px; margin-bottom: 15px;">Data Flow Diagram</h3>
+            <div class="mermaid" style="background: var(--bg-primary); border-radius: 4px; padding: 20px; margin-top: 15px; margin-bottom: 30px;">
+graph TD
+    A[GPS Module] -->|GPS_measurement| B[MetaSpace Detector]
+    C[IMU/EKF Filter] -->|IMU_state| B
+    B -->|1. Build constraints| D[Z3 SMT Solver]
+    D -->|2. Check UNSAT| E{Spoofing?}
+    E -->|Yes| F[Flight Controller: RTL/Land]
+    E -->|No| G[Continue Normal Operation]
+            </div>
+            
+            <h3 style="font-size: 0.95em; color: var(--text-secondary); margin-top: 30px; margin-bottom: 15px;">Finite State Machine</h3>
+            <div class="mermaid" style="background: var(--bg-primary); border-radius: 4px; padding: 20px; margin-top: 15px; margin-bottom: 30px;">
+stateDiagram-v2
+    [*] --> Operational
+    Operational --> Suspect: GPS-INS divergence > 20m
+    Suspect --> Operational: GPS-INS divergence < 10m
+    Suspect --> Isolated: GPS-INS divergence > 50m
+    Isolated --> [*]
+    
+    note right of Operational
+        Normal operation mode
+        All data authentic
+    end note
+    
+    note right of Suspect
+        Increased noise or
+        minor divergence
+    end note
+    
+    note right of Isolated
+        GPS compromised
+        System locked
+    end note
+            </div>
+            
+            <p style="margin-top: 20px;">
+                <a href="docs/ARCHITECTURE.md" class="link" target="_blank">View full architecture documentation →</a>
+            </p>
+        </div>
+
+        <div class="security-notice">
+            <h3>Security & Integrity</h3>
+            <p>
+                All sensitive and proprietary files are protected via <strong>SHA-256 hash verification</strong>.
+                Files marked as sensitive are excluded from public repositories and verified using cryptographic hashes.
+            </p>
+            <p style="margin-top: 10px;">
+                <strong>Protected Files:</strong> Proprietary core modules, classified specifications, sensitive test data<br>
+                <strong>Verification:</strong> SHA-256 hashes stored in <code>PROTECTED_FILES_LIST.md</code><br>
+                <strong>Note:</strong> Sensitive files are NOT distributed publicly. Only open-source components are available.
+            </p>
+        </div>
+
+        <div class="limitations">
+            <h3>Limitations</h3>
+            <ul>
+                <li>Zero-delay meaconing: Not detectable at receiver level (mathematical limit)</li>
+                <li>Invariant completeness: Depends on accurate kinematic model</li>
+                <li>Covert spoofing: Rate-dependent (85-92% detection, not 100%)</li>
+                <li>Sensor calibration: Required for accurate operation</li>
+            </ul>
+            <p style="margin-top: 15px;">
+                <a href="docs/LIMITATIONS.md" class="link" target="_blank">View full limitations documentation →</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>
+            MetaSpace-Drone-Shield | TRL-4 (Prototype validation in progress)<br>
+            <a href="README.md" class="link" target="_blank">Documentation</a> |
+            <a href="CONTRIBUTING.md" class="link" target="_blank">Contributing</a> |
+            <a href="LICENSE" class="link" target="_blank">License (Apache 2.0)</a>
+        </p>
+        <p style="margin-top: 10px; font-size: 0.9em;">
+            Copyright 2025 Citrom Media SRL (LemonScript Laboratory)
+        </p>
+    </footer>
+</body>
+</html>
