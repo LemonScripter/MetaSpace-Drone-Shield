@@ -56,8 +56,14 @@ Aligned with **DO-178C**, **DO-333**, and **IEC 61508**:
 SHA256 Fingerprint: 9a721f6436caacfbd73f4303aed7465b3f53609ffd2129c445279d9f5cdf9d16  
 Patent Reference: OSIM Nr. 20251221-2230
 
-*This project is developed at **LemonScript**, the R\&D laboratory of **Citrom Méda LTD**. Proprietary FPGA synthesis engines and Pro Compiler access are managed by the lead architect.*
+### Development & Licensing
 
-**Official Documentation**:
-(EN): [metaspace.bio](https://lemonscripter.github.io/MetaSpace-Drone-Shield/)
-(HU): [metaspace.bio](https://biological-code.netlify.app)
+**This project is engineered by MetaSpace Technologies**
+*(A deep-tech division of Citrom Media Deep Tech Holdings)*.
+
+While this public validation repository is open for research, the core technology differentiates as follows:
+* 🛡️ **Open Validation Core:** The logic verification modules and examples found here are licensed under **MIT**.
+* 🔒 **Commercial Runtime:** The **MetaSpace Deterministic Engine (O(1))**, FPGA synthesis tools, and the Pro Compiler are **Proprietary IP** available under a Commercial License.
+
+**Official Documentation & Enterprise Access:**
+👉 [https://metaspace.bio](https://metaspace.bio)
