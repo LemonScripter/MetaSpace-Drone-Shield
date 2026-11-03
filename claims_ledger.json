@@ -1,0 +1,167 @@
+{
+ "repo": "MetaSpace-Drone-Shield",
+ "claims": [
+  {
+   "id": "DS-01",
+   "status": "PROVED",
+   "statement": "The original example violates its own rf_integrity rule in state Normal (transition-first semantics).",
+   "evidence": [
+    {
+     "file": "results/verify_spec.txt",
+     "contains": "drone_shield_v1\\.bio\\s+transition_first\\s+NO"
+    }
+   ],
+   "docs": [
+    {
+     "file": "README.md",
+     "text": "does **not** satisfy its own invariant"
+    }
+   ],
+   "numbers": []
+  },
+  {
+   "id": "DS-02",
+   "status": "PROVED",
+   "statement": "v2 satisfies both rules and the lock is absorbing under transition-first semantics.",
+   "evidence": [
+    {
+     "file": "results/verify_spec.txt",
+     "contains": "drone_shield_v2\\.bio\\s+transition_first\\s+yes"
+    }
+   ],
+   "docs": [
+    {
+     "file": "docs/validation/SMT_VERIFICATION_REPORT.md",
+     "text": "| v2 | transition-first | proved | proved | proved |"
+    }
+   ],
+   "numbers": []
+  },
+  {
+   "id": "DS-03",
+   "status": "PROVED",
+   "statement": "Any NaN/infinite input raises the alarm (F1a, F1b) and rf > -125 raises it (F4), for all float32 inputs.",
+   "evidence": [
+    {
+     "file": "results/verify_float.txt",
+     "contains": "F1a invalid input -> Normal guard fires\\s+PROVED"
+    },
+    {
+     "file": "results/verify_float.txt",
+     "contains": "F1b invalid coordinate -> Suspect guard fires \\(escalation\\)\\s+PROVED"
+    },
+    {
+     "file": "results/verify_float.txt",
+     "contains": "F4\\s+rf > -125 \\(not NaN\\) -> Normal guard fires\\s+PROVED"
+    }
+   ],
+   "docs": [
+    {
+     "file": "README.md",
+     "text": "Z3 proves for **all** float32 inputs that any NaN or infinite input raises the alarm (F1a, F1b)"
+    }
+   ],
+   "numbers": []
+  },
+  {
+   "id": "DS-04",
+   "status": "PROVED",
+   "statement": "Distance guards F2/F3 are proved relative to the standard rounding model (4 checks).",
+   "evidence": [
+    {
+     "file": "results/verify_float.txt",
+     "contains": "F2 model: exact d2 > 2500\\(1\\+EPS\\) => fl\\(d2\\) > 2500.*PROVED"
+    },
+    {
+     "file": "results/verify_float.txt",
+     "contains": "F3 model: exact d2 < 400\\(1-EPS\\)\\s+=> fl\\(d2\\) <= 400\\s+PROVED"
+    }
+   ],
+   "docs": [
+    {
+     "file": "docs/validation/SMT_VERIFICATION_REPORT.md",
+     "text": "**All four checks PROVED**"
+    }
+   ],
+   "numbers": []
+  },
+  {
+   "id": "DS-05",
+   "status": "NOT_DONE",
+   "statement": "The bit-level proof on the bounded domain timed out (UNKNOWN); no claim is made from it.",
+   "evidence": [
+    {
+     "file": "results/verify_float.txt",
+     "contains": "F2b bounded.*UNKNOWN"
+    }
+   ],
+   "docs": [
+    {
+     "file": "docs/validation/SMT_VERIFICATION_REPORT.md",
+     "text": "All four checks ended with `UNKNOWN`"
+    }
+   ],
+   "numbers": []
+  },
+  {
+   "id": "DS-06",
+   "status": "MEASURED",
+   "statement": "The generated RISC-V gate matches an independent float32 model on 100,803 vectors with 0 mismatches.",
+   "evidence": [
+    {
+     "file": "results/measure_gate_v2.txt",
+     "contains": "0 mismatches in 100803"
+    }
+   ],
+   "docs": [
+    {
+     "file": "README.md",
+     "text": "The generated RISC-V gate was run on 100,803 test vectors"
+    }
+   ],
+   "numbers": [
+    "100,803"
+   ]
+  },
+  {
+   "id": "DS-07",
+   "status": "MEASURED",
+   "statement": "Instructions per tick (min / median / max) on the RV32IMC build.",
+   "evidence": [
+    {
+     "file": "results/measure_gate_v2.txt",
+     "contains": "min 144, median 348, max 467"
+    }
+   ],
+   "docs": [
+    {
+     "file": "README.md",
+     "text": "**144 / 348 / 467 instructions (minimum / median / maximum)**"
+    }
+   ],
+   "numbers": [
+    "144",
+    "348",
+    "467"
+   ]
+  },
+  {
+   "id": "DS-08",
+   "status": "ESTIMATED",
+   "statement": "Time per tick is an estimate from instruction counts with assumed cycles per instruction (no hardware).",
+   "evidence": [
+    {
+     "file": "results/measure_gate_v2.txt",
+     "contains": "ESTIMATED"
+    }
+   ],
+   "docs": [
+    {
+     "file": "README.md",
+     "text": "no hardware was used"
+    }
+   ],
+   "numbers": []
+  }
+ ]
+}

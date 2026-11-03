@@ -4,6 +4,7 @@ An earlier version of this repository presented tools and documents as a certifi
 
 ## What was wrong
 
+<!-- claims:quote: this list quotes the withdrawn claims -->
 * **`src/verification/smt_solver.py` proved nothing.** It printed `PROVED_DETERMINISTIC` and `Confidence: 1.0 (Mathematical Certainty)` and returned `True` without any logic.
 * **`src/compiler/parser.py` ignored its input.** It tokenised the file and then returned a fixed result (`"cell": "DroneShield_V1"`).
 * **`metaspace_smt_engine.py` was a tautology.** It asserted the rule, asserted that the rule's antecedent holds and that the lock is off, and found that to be unsatisfiable. That only shows that the rule agrees with itself, not that the state machine or any implementation enforces it. The "proof hash" was a fixed string and the text called the result "bulletproof".
