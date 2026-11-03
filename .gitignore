@@ -8,3 +8,7 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+build/
+gate_rv32/target/
+gate_rv32/src/main.rs
+__pycache__/

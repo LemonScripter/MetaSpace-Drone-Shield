@@ -1,0 +1,46 @@
+﻿
+== DroneShield_V1 (../examples/drone_shield_v1.bio) | semantics: transition_first
+reachable states: ['Normal', 'Suspect', 'Isolated'] | unreachable: []
+  P1 [Normal   ] spatial_integrity : PROVED (no input violates it)
+  P1 [Normal   ] rf_integrity      : VIOLATED, counter-example {'gps_coord_x': 0.0, 'gps_coord_y': 0.0, 'rf_power': -124.0, 'ins_coord_y': 0.0, 'ins_coord_x': 0.0}  (z3: sat)
+  P1 [Suspect  ] spatial_integrity : PROVED (no input violates it)
+  P1 [Suspect  ] rf_integrity      : PROVED (no input violates it)
+  P1 [Isolated ] spatial_integrity : PROVED (no input violates it)
+  P1 [Isolated ] rf_integrity      : PROVED (no input violates it)
+  P2 [Isolated ] absorbing (SAFETY_LOCK): PROVED
+
+== DroneShield_V1 (../examples/drone_shield_v1.bio) | semantics: output_first
+reachable states: ['Normal', 'Suspect', 'Isolated'] | unreachable: []
+  P1 [Normal   ] spatial_integrity : VIOLATED, counter-example {'gps_coord_x': 0.0, 'gps_coord_y': -51.0, 'ins_coord_y': 0.0, 'ins_coord_x': 0.0}  (z3: sat)
+  P1 [Normal   ] rf_integrity      : VIOLATED, counter-example {'gps_coord_x': 0.0, 'gps_coord_y': 0.0, 'rf_power': -124.0, 'ins_coord_y': 0.0, 'ins_coord_x': 0.0}  (z3: sat)
+  P1 [Suspect  ] spatial_integrity : PROVED (no input violates it)
+  P1 [Suspect  ] rf_integrity      : PROVED (no input violates it)
+  P1 [Isolated ] spatial_integrity : PROVED (no input violates it)
+  P1 [Isolated ] rf_integrity      : PROVED (no input violates it)
+  P2 [Isolated ] absorbing (SAFETY_LOCK): PROVED
+
+== DroneShield_V2 (../examples/drone_shield_v2.bio) | semantics: transition_first
+reachable states: ['Normal', 'Suspect', 'Isolated'] | unreachable: []
+  P1 [Normal   ] spatial_integrity : PROVED (no input violates it)
+  P1 [Normal   ] rf_integrity      : PROVED (no input violates it)
+  P1 [Suspect  ] spatial_integrity : PROVED (no input violates it)
+  P1 [Suspect  ] rf_integrity      : PROVED (no input violates it)
+  P1 [Isolated ] spatial_integrity : PROVED (no input violates it)
+  P1 [Isolated ] rf_integrity      : PROVED (no input violates it)
+  P2 [Isolated ] absorbing (SAFETY_LOCK): PROVED
+
+== DroneShield_V2 (../examples/drone_shield_v2.bio) | semantics: output_first
+reachable states: ['Normal', 'Suspect', 'Isolated'] | unreachable: []
+  P1 [Normal   ] spatial_integrity : VIOLATED, counter-example {'gps_coord_x': 0.0, 'gps_coord_y': -51.0, 'ins_coord_y': 0.0, 'ins_coord_x': 0.0}  (z3: sat)
+  P1 [Normal   ] rf_integrity      : VIOLATED, counter-example {'gps_coord_x': 0.0, 'gps_coord_y': 0.0, 'rf_power': -124.0, 'ins_coord_y': 0.0, 'ins_coord_x': 0.0}  (z3: sat)
+  P1 [Suspect  ] spatial_integrity : PROVED (no input violates it)
+  P1 [Suspect  ] rf_integrity      : PROVED (no input violates it)
+  P1 [Isolated ] spatial_integrity : PROVED (no input violates it)
+  P1 [Isolated ] rf_integrity      : PROVED (no input violates it)
+  P2 [Isolated ] absorbing (SAFETY_LOCK): PROVED
+
+SUMMARY (all properties proved?):
+  ../examples/drone_shield_v1.bio        transition_first  NO
+  ../examples/drone_shield_v1.bio        output_first      NO
+  ../examples/drone_shield_v2.bio        transition_first  yes
+  ../examples/drone_shield_v2.bio        output_first      NO

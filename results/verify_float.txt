@@ -1,0 +1,20 @@
+float32 model of the generated gate (Z3 floating-point theory)
+  F1a invalid input -> Normal guard fires                                  PROVED   (1.0 s)
+  F1b invalid coordinate -> Suspect guard fires (escalation)               PROVED   (0.3 s)
+  F4  rf > -125 (not NaN) -> Normal guard fires                            PROVED   (0.1 s)
+  (an invalid rf alone does not escalate Suspect, but Suspect already has alarm = 1, so alarm = 1 holds for every invalid input)
+
+  -- F2/F3 step 1: algebra over the reals from the standard rounding model fl(z) = z(1+e) + d, |e| <= 2^-24, |d| <= 2^-100 (covers underflow)
+  F2 model: exact d2 > 2500(1+EPS) => fl(d2) > 2500   (d2 <= 1e9)          PROVED   (22.4 s)
+  F2 model: exact d2 > 400(1+EPS)  => fl(d2) > 400    (d2 <= 1e9)          PROVED   (22.6 s)
+  F3 model: exact d2 < 2500(1-EPS) => fl(d2) <= 2500                       PROVED   (29.3 s)
+  F3 model: exact d2 < 400(1-EPS)  => fl(d2) <= 400                        PROVED   (29.2 s)
+     (conditional on the rounding model, Higham, Accuracy and Stability of Numerical Algorithms, Thm 2.2; huge values overflow to infinity and are covered by F1-type handling)
+
+  -- F2/F3 step 2: bit-level on a bounded domain: every f32 with 2^-8 <= |x| <= 2^8 or x = 0; the reference distance is computed exactly in a wide FP format
+  F2b bounded: exact d2 > 2500(1+EPS) -> g50 fires                         UNKNOWN  (300.3 s, solver: timeout)
+  F3b bounded: exact d2 < 2500(1-EPS) -> g50 silent                        UNKNOWN  (300.3 s, solver: timeout)
+  F2a bounded: exact d2 > 400(1+EPS)  -> g20 fires                         UNKNOWN  (300.3 s, solver: timeout)
+  F3a bounded: exact d2 < 400(1-EPS) and rf <= -125 -> g20 silent          UNKNOWN  (300.3 s, solver: timeout)
+
+NOT ALL PROVED (UNKNOWN means the solver gave up; it is not a proof)

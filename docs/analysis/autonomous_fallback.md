@@ -1,29 +1,12 @@
-# **MetaSpace: Autonomous Navigation without GNSS Dependency**
+# Navigation after the shield engages: what is and is not supported
 
-This document analyzes how the MetaSpace framework enables flight plan execution even when external GNSS (GPS) signals are compromised, spoofed, or entirely missing.
+**Status: concept note. Nothing in this repository implements or tests autonomous navigation.**
 
-## **1\. The Problem: GNSS Dependency**
+The gate decides *that* the GNSS position is inconsistent with the inertial estimate. It does not navigate. A possible reaction is to continue on inertial dead reckoning (INS/IMU) and return to a safe point, but:
 
-Most commercial and military unmanned aerial vehicles (UAVs) are "blinded" when GPS signals are jammed or spoofed. In such scenarios, the craft typically loses spatial orientation, leading to catastrophic crashes, loss of control, or forced landings in hostile territory.
+* **Dead reckoning drifts.** The position error of a low-cost inertial unit grows with time (velocity error integrates into position error; an uncorrected bias grows roughly quadratically). Without another source (barometer, vision, odometry, terrain matching), the INS-only position is trustworthy for seconds to minutes, depending on the sensor grade. A "provable" return to base needs a bound on this error, which the repository does not provide.
+* **A flight plan encoded in the specification is not a verified model of the vehicle.** The current `.bio` example has no flight plan, no velocity or acceleration limits and no model of the dynamics. The earlier claims "formally verified flight model", "Digital Twin" and "mathematically guaranteed to remain within physical bounds" are withdrawn.
+* **Immunity to electronic warfare is not claimed.** A system that ignores GNSS is not affected by GNSS spoofing, but it is limited by the INS error and by every other sensor it still relies on.
+* **Latency.** Only the decision step was measured (emulator instruction counts, estimated 2-4 µs). A switch of navigation source involves the flight controller; no time for that was measured, and no "nanosecond fail-over" has been shown (no FPGA implementation exists here).
 
-## **2\. The MetaSpace Solution: Model-Based Navigation**
-
-A specification written in the MetaSpace .bio language acts as more than just a security gate; it serves as a **Digital Twin** of the flight's physical reality.
-
-### **How Independent Execution Works:**
-
-1. **Formal Model:** The flight plan and the vehicle's physical constraints (velocity, acceleration, inertia) are encoded within the .bio specification.  
-2. **Shield Engaged:** As soon as the MetaSpace logic engine detects that the divergence between the external GPS and the internal model exceeds safety thresholds, it triggers an immediate isolation protocol.  
-3. **Inertial Dead Reckoning:** Upon isolation, the UAV switches its primary navigation source to internal sensors (IMU/INS) synchronized with the **formally verified flight model**.  
-4. **Deterministic Pathing:** Since the model is mathematically pre-verified, the craft "knows" its expected coordinates relative to time. This allows for precise path-following or a controlled return-to-base (RTB) without any external positioning data.
-
-## **3\. Strategic Advantages**
-
-* **Immunity to Electronic Warfare:** No matter how sophisticated the spoofing signal is, the craft follows its internal "mathematical truth" rather than external deception.  
-* **Hardware-Level Performance:** By synthesizing the logic for FPGA targets, the fail-over switch occurs in nanoseconds, eliminating software-induced jitter or latency-based instability.  
-* **Provable Safety:** The fallback phase is mathematically guaranteed to remain within defined physical bounds, providing a level of reliability that heuristics cannot match.
-
-## **4\. Conclusion**
-
-MetaSpace is not merely a defensive layer; it is an **autonomy-enhancing technology**. It transforms the UAV from a reactive machine into a self-aware system capable of flying by "memory" and logic in environments where the external world is untrustworthy.  
-*Citrom Méda LTD \- LemonScript R\&D Strategic Paper*
+Open work: a quantified INS-error bound for a specific sensor, a reaction policy, tests in a software-in-the-loop simulator, then hardware tests.

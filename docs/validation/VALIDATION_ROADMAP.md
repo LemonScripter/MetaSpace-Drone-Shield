@@ -1,52 +1,24 @@
-# **MetaSpace Validation Status & Strategic Roadmap**
+# Validation status and roadmap
 
-This document records the current standing of the MetaSpace project within the five-stage pipeline and outlines the strategic roadmap for full mathematical proof and industry certification.
+Status: **TRL 3-4 (laboratory prototype).** Earlier versions of this repository claimed certification ("Stage 1 CERTIFIED") and readiness for SIL-3/SIL-4/NATO audits. Those claims are withdrawn: nothing here is certified, qualified or independently audited.
 
-## **1\. Current Standing (TRL 4 Status)**
+## 1. Where each stage stands
 
-MetaSpace is currently at **TRL 4 (Technology Readiness Level)**. While the theoretical core is robust, the industrial audit path is structured as follows:
+| Stage | Status | Evidence / gap |
+|---|---|---|
+| 1. Language and logic | **partial** | a subset has a parser and a reference semantics (`src/bio_subset.py`, `docs/validation/FORMAL_SEMANTICS.md`); Z3 checks of the invariants against the state machine and of the float32 step function (`docs/validation/SMT_VERIFICATION_REPORT.md`); no machine-checked formal semantics of the full language |
+| 2. Tool chain | **prototype** | a generator for the subset (`src/gen_gate.py`) with differential tests against independent models; no tool qualification (DO-330) process |
+| 3. Safety V&V | **draft** | HARA and FMEA drafted by the authors, not reviewed (`HARA_REPORT.md`, `FMEA_REPORT.md`) |
+| 4. System level | **not done** | no software-in-the-loop, hardware-in-the-loop, flight or field test |
+| 5. Assurance case | **draft with open gaps** | `ASSURANCE_CASE.md` |
 
-| Stage (Pipeline) | Status | Notes |
-| :---- | :---- | :---- |
-| **1\. Language Level** | **70% \- Partial** | Syntax and semantics defined; ready for machine-assisted theorem proving (e.g., Isabelle/HOL). |
-| **2\. Toolchain/Compiler** | **40% \- Prototype** | Logic core functional; C++/VHDL synthesis engines are in the "Pre-Qualification" phase. |
-| **3\. Safety V\&V** | **50% \- Theoretical** | Case studies (AF447, Knight Capital) prove the principle; HARA/FMEA reports are drafted. |
-| **4\. System Level** | **60% \- Simulated** | SITL simulations (ArduPilot) prove resilience against GNSS spoofing. |
+## 2. What would be needed for a stronger claim
 
-## **2\. The Path to 100% Mathematical Proof**
+1. **Independent review** of the specification, thresholds and tool chain by a qualified party.
+2. **Thresholds from data:** GNSS error and INS drift statistics for a real platform; false-alarm and miss rates.
+3. **Hardware measurement:** the gate on the target controller (and, if claimed, on an FPGA), with timing measured on the device, not estimated from instruction counts.
+4. **System tests:** software-in-the-loop (e.g. ArduPilot SITL), then hardware-in-the-loop, then flight tests with injected spoofing in a controlled environment.
+5. **Coverage of further invariants** (staleness, battery, altitude) that older documents mentioned but this repository does not implement.
+6. **Certification-oriented work** (DO-178C / DO-333 / IEC 61508) only after the above, with an external assessor.
 
-**Professional Verdict: NOT YET 100%.**  
-While the logic is flawless, a "100% Proof" in mission-critical industries implies:
-
-1. **Automated Verification:** An SMT solver (e.g., Z3) has scanned every possible state-space combination and found zero contradictions.  
-2. **Tool Qualification:** An independent auditor (e.g., TÜV or NATO) has certified that the compiler does not introduce errors during synthesis.
-
-**What is 100% Certain:** The MetaSpace **theoretical model** is inherently capable of reaching this level, whereas traditional AI or EKF-based systems are fundamentally limited by probabilistic uncertainty.
-
-## **3\. Cost-Effective Validation Roadmap**
-
-### **Phase I: The Virtual Fortress (0 \- 3 Months)**
-
-* **Cost:** $0 (Engineering time only).  
-* **Action:** Integrate the **Z3 SMT Solver**. Translate .bio invariants into SMT-LIB format for automated safety proofs.  
-* **Output:** The first "Mathematical Certification" of the logic core.
-
-### **Phase II: Open Standardization (Open-Core)**
-
-* **Cost:** $0.  
-* **Action:** Publish the .bio grammar on GitHub. Encourage community peer-review to stress-test the logic.  
-* **Output:** Community trust and logic robustness verification.
-
-### **Phase III: Low-Cost Hardware-in-the-Loop (HIL)**
-
-* **Cost:** \~$100.  
-* **Action:** Deploy the MetaSpace gate on an **Arduino Opta** or **ESP32**. Simulate faults via I/O and verify the sub-millisecond Logic Lock reaction.  
-* **Output:** Empirical proof of deterministic hardware performance.
-
-### **Phase IV: Documentation & Assurance Case**
-
-* **Cost:** $0.  
-* **Action:** Construct the **GSN (Goal Structuring Notation)** tree. Connect the "UAV Safety" goal to the mathematical proof evidence.  
-* **Output:** Audit-ready documentation for investors and regulators.
-
-**LemonScript R\&D Laboratory | Citrom Méda LTD**
+Professional verdict: not yet certifiable, not a "100% proof" of anything beyond the stated model.

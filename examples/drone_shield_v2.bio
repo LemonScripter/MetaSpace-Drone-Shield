@@ -1,0 +1,42 @@
+/* MetaSpace Formal Specification
+   Module: UAV Navigation Integrity, v2
+   Changes against v1 (found by src/verify_spec.py and src/verify_float.py, see docs/validation/SMT_VERIFICATION_REPORT.md):
+   - v1 never raised the alarm for high RF power while in state Normal (rule rf_integrity was not enforced by the state machine).
+   - transition guards are written in the negated form NOT (... <= limit): a NaN or infinite sensor value makes every comparison
+     false, so a guard "x > limit" fails open (no alarm), while "NOT (x <= limit)" fails safe (alarm).
+   Semantics: transition-first (see src/bio_subset.py): the guards are evaluated on the current inputs, then the outputs of the resulting state are emitted. */
+
+CELL DroneShield_V2 {
+INTERFACE {
+INPUT gps_coord: VECTOR2D;
+INPUT ins_coord: VECTOR2D;
+INPUT rf_power:  FLOAT;
+OUTPUT alarm:    BINARY;
+}
+
+INVARIANTS {
+    // Spatial law: divergence beyond 50 m must raise the alarm
+    RULE spatial_integrity:
+        DISTANCE(gps_coord, ins_coord) > 50.0 IMPLIES alarm == 1;
+
+    // Signal law: suspiciously high RF power must raise the alarm
+    RULE rf_integrity:
+        rf_power > -125.0 IMPLIES alarm == 1;
+}
+
+STATES {
+    STATE Normal {
+        alarm = 0;
+        TRANSITION TO Suspect IF NOT (DISTANCE(gps_coord, ins_coord) <= 20.0 AND rf_power <= -125.0);
+    }
+    STATE Suspect {
+        alarm = 1;
+        TRANSITION TO Isolated IF NOT (DISTANCE(gps_coord, ins_coord) <= 50.0);
+    }
+    STATE Isolated TYPE SAFETY_LOCK {
+        alarm = 1;
+    }
+}
+
+
+}

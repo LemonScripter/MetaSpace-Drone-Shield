@@ -4,6 +4,7 @@ MetaSpace Pro - Drone Simulation Server (Professional Edition)
 1. Web Server: Streams data to index.html (Port 5000)
 2. Local Plot: Opens a real-time Matplotlib window
 Status: 'Shield Engaged' / 'Verified Safe'
+ILLUSTRATIVE SIMULATION with synthetic data. The alarm below is a plain threshold in Python; it is not the verified gate (see src/ and docs/validation/).
 """
 
 import numpy as np
@@ -69,7 +70,7 @@ class MetaSpaceSimulator:
             "ins": round(self.ins_x, 2),
             "divergence": round(self.divergence, 2),
             "alert": self.alarm_active,
-            "status": "Shield Engaged" if self.alarm_active else "Verified Safe"
+            "status": "Alarm (divergence > 50 m)" if self.alarm_active else "No alarm"
         }
 
 uav_logic = MetaSpaceSimulator()

@@ -1,3 +1,4 @@
+# ILLUSTRATIVE SIMULATION with synthetic data. The alarm below is a plain threshold in Python; it is not the verified gate (see src/ and docs/validation/).
 import numpy as np
 import matplotlib.pyplot as plt
 

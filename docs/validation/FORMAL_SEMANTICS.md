@@ -1,49 +1,32 @@
-# **MetaSpace.bio: Formal Semantics & Logic Specification**
+# Formal semantics of the `.bio` subset used here
 
-**Version:** 2.0.0  
-**Classification:** Critical Integrity Evidence  
-**Status:** ✅ CERTIFIED (Audit \#MS-001)
+Implemented in `src/bio_subset.py` (parser and reference semantics). This document describes what the tools implement; it is not a full definition of the `.bio` language.
 
-## **1\. Abstract**
+## Subset
 
-This document defines the formal semantics of the **.bio** metalanguage. The language is designed to be a "Zero-Side-Effect" environment, where every logical statement maps directly to a deterministic state-transition or a physical hardware gate.
+```
+CELL name { INTERFACE { INPUT x: T; ... OUTPUT y: T; }
+            INVARIANTS { RULE r: expr; ... }
+            STATES { STATE s [TYPE t] { out = expr; TRANSITION TO s2 IF expr; ... } ... } }
+```
+Types: `FLOAT`, `BINARY`, `VECTOR2D`. Expressions: numbers, identifiers, `DISTANCE(a, b)` on `VECTOR2D`, `+ - * /`, comparisons, `NOT`, `AND`, `OR`, `IMPLIES`. The parser rejects everything else (unknown sections, types such as `INTEGER`, malformed input).
 
-## **2\. Mathematical Foundation**
+## One tick (transition-first)
 
-The logic is based on **First-Order Logic (FOL)** and **Satisfiability Modulo Theories (SMT)**.
+1. In the current state the `TRANSITION` clauses are tried in source order; the first whose guard is true is taken.
+2. The assignments of the resulting state are executed; they are the outputs of the tick.
 
-* **Invariants (**$I$**):** A set of predicates $P(s)$ that must hold true for all reachable states $s \\in S$.  
-* **Safety Property:**$$\\forall s \\in S: P(s) \\implies \\text{Integrity}(s)$$  
-* **Gating Function:** $f: S \\times C \\to \\{0, 1\\}$, where $0$ represents a physical disconnection (Logic Lock).
+A state of `TYPE SAFETY_LOCK` has no outgoing transition and therefore keeps the system there. An out-of-range state value in the generated code moves to the lock state (fail-safe).
+The alternative output-first semantics (emit the outputs of the current state, then move) is evaluated by the verifier; the result differs (see `SMT_VERIFICATION_REPORT.md`). A specification must say which one is meant; this repository uses transition-first.
 
-## **3\. Semantic Domains**
+## Invariants
 
-### **3.1. Spatial Domain (Space)**
+Each `RULE` is a Boolean expression over the inputs and outputs of the same tick. "The rule holds" means: for every reachable state and every input, evaluating the rule on the inputs and on the outputs of the tick gives true.
 
-The DISTANCE function is defined as the Euclidean distance between two vectors in $\\mathbb{R}^2$ or $\\mathbb{R}^3$.
+## Numbers
 
-$$\\text{DISTANCE}(v\_1, v\_2) \= \\sqrt{(x\_1-x\_2)^2 \+ (y\_1-y\_2)^2}$$
+The reference semantics uses exact reals (the Z3 check) or float64 (the Python evaluator). The generated code uses IEEE-754 float32. `DISTANCE(a, b) <op> T` compiles to `d2 <op> T·T` with `d2 = (ax-bx)² + (ay-by)²` (no square root). A comparison with NaN is false. To make a missing or invalid value fail safe, guards are written as `NOT (x <= limit)`, not `x > limit`.
 
-The semantics dictate that if the measured distance exceeds the formal threshold, the state must transition to SAFETY\_LOCK.
+## What is not defined here
 
-### **3.2. Temporal Domain (Time)**
-
-The STALENESS function measures the discrete clock cycles since the last verified packet.
-
-$$\\text{STALENESS}(p) \= \\text{CurrentTime} \- \\text{Timestamp}(p)$$
-
-Logic gates are evaluated every 500ns (0.0005 ms), ensuring that no stale data can affect the flight controller.
-
-### **3.3. Metabolic Domain (Energy)**
-
-Metabolic invariants monitor the voltage $V$ and current $A$. Homeostasis is maintained as long as $V \> V\_{\\text{threshold}}$.
-
-## **4\. Proof of Determinism**
-
-Using the **Z3 SMT Solver**, we have proven that for any given set of inputs $I$, there is **exactly one** valid output $O$.
-
-* **No Race Conditions:** Logic is synthesized into parallel hardware gates.  
-* **No Jitter:** Execution is clock-locked to the FPGA oscillator.
-
-**Verification Authority:** MetaSpace SMT Engine v1.0  
-**Integrity Hash:** 9a721f6436caacfbd73f4303aed7465b3f53609ffd2129c445279d9f5cdf9d16
+Timing (clock, jitter, hardware synthesis), the `STALENESS`, `RATE_OF_CHANGE` and fuzzy-logic constructs, temporal properties beyond one tick, and the proprietary compiler. Statements in earlier versions about "100% state-space coverage", "every logic gate evaluated every 500 ns" and "exactly one valid output proven by Z3" referred to none of this and are withdrawn.

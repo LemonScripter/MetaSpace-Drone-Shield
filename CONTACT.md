@@ -21,7 +21,7 @@ For organizations looking to integrate MetaSpace as a safety-gating module into 
 
 ### **3\. Investment & Scaling**
 
-MetaSpace is a solo-founded innovation with a proven TRL 3/4 baseline. We are looking for partners to help scale this into a NATO-compliant security standard.
+MetaSpace is a solo-founded innovation at TRL 3/4 (laboratory prototype, nothing certified). We are looking for partners to help scale this into a security approach that can be independently assessed.
 
 ## **📧 Contact Channels**
 

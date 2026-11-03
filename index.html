@@ -81,7 +81,7 @@
             <a href="#benchmarks" class="hover:text-slate-900 transition underline-offset-8">Benchmarks</a>
         </div>
         <div>
-            <span class="px-5 py-2 bg-emerald-500 text-white text-[10px] font-black rounded-full uppercase tracking-[0.15em] shadow-lg shadow-emerald-500/30">✓ Certified Stage 1</span>
+            <span class="px-5 py-2 bg-emerald-500 text-white text-[10px] font-black rounded-full uppercase tracking-[0.15em] shadow-lg shadow-emerald-500/30">Research prototype · not certified</span>
         </div>
     </nav>
 
@@ -94,32 +94,32 @@
                     <span class="text-[10px] font-bold uppercase tracking-wider">Status: TRL 4 (Lab Validated)</span>
                 </div>
                 <h2 class="text-6xl md:text-8xl font-black text-slate-900 mb-8 tracking-tighter leading-[0.9]">
-                    Security as a <br><span class="text-slate-400">Mathematical</span> <br>Constraint.
+                    A small, <br><span class="text-slate-400">checkable</span> <br>safety gate.
                 </h2>
                 <p class="text-xl text-slate-500 max-w-xl leading-relaxed">
-                    MetaSpace.bio provides a deterministic membrane for mission-critical systems, enforcing unbreakable laws across <strong>Space, Time, and Energy</strong>.
+                    MetaSpace.bio is a specification language and tool chain for small safety gates. This prototype checks <strong>GNSS/INS divergence</strong> and <strong>RF power</strong>, with the rule checked by a solver and the generated code measured in an emulator.
                 </p>
             </div>
             <div class="lg:col-span-5 grid grid-cols-2 gap-4">
                 <div class="p-8 glass rounded-[40px] shadow-sm">
                     <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Latency</p>
-                    <div class="text-4xl font-black">0.0005<span class="text-emerald-500">ms</span></div>
-                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Real-Time Isolation</p>
+                    <div class="text-4xl font-black">2-4<span class="text-emerald-500">µs</span></div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Est. per tick, RV32IMC emulator</p>
                 </div>
                 <div class="p-8 glass rounded-[40px] shadow-sm">
                     <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">SMT Solver</p>
-                    <div class="text-4xl font-black text-blue-500">PROVED</div>
-                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Z3 Verified State</p>
+                    <div class="text-4xl font-black text-blue-500">CHECKED</div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Spec + float32 step function</p>
                 </div>
                 <div class="p-8 glass rounded-[40px] shadow-sm">
                     <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Compliance</p>
-                    <div class="text-4xl font-black">SIL-3</div>
-                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Target Integrity</p>
+                    <div class="text-4xl font-black">NONE</div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Not assessed (SIL-3 was a target)</p>
                 </div>
                 <div class="p-8 glass rounded-[40px] shadow-sm">
                     <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">Jitter</p>
-                    <div class="text-4xl font-black">ZERO</div>
-                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">Hardware-Gated</p>
+                    <div class="text-4xl font-black">BOUNDED</div>
+                    <p class="text-[10px] text-slate-400 mt-2 font-bold uppercase tracking-widest">144-467 instructions per tick</p>
                 </div>
             </div>
         </div>
@@ -129,7 +129,7 @@
     <section id="syntax" class="max-w-7xl mx-auto px-6 py-24 bg-white">
         <div class="mb-16 text-center max-w-3xl mx-auto">
             <h3 class="text-4xl font-black tracking-tight text-slate-900 mb-6">Universal Specification v2.0</h3>
-            <p class="text-slate-500 text-lg">Governing every physical dimension—Space, Time, and Metabolic Reserves—within a single formal specification.</p>
+            <p class="text-slate-500 text-lg">A language showcase. The tools in this repository implement the subset used by <code>examples/drone_shield_v2.bio</code>; the constructs below that go beyond it are not implemented here.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -138,19 +138,19 @@
                 <div class="p-6 rounded-[32px] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition">
                     <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-3 text-emerald-600">Spatial & Temporal Guard</h4>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Protects against <strong>GNSS Spoofing</strong> and <strong>Replay Attacks</strong>. Invariants monitor spatial divergence and data staleness in discrete clock-ticks.
+                        Targets <strong>GNSS spoofing</strong> by monitoring spatial divergence. Staleness (replay) checks are part of the language concept but are <strong>not implemented</strong> in this repository.
                     </p>
                 </div>
                 <div class="p-6 rounded-[32px] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition">
                     <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-3 text-blue-600">Metabolic Energy Reserves</h4>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Ensures mission-abortion before physical collapse. Monitors battery voltage and fuel metrics as <strong>Homeostatic Invariants</strong>.
+                        Concept: battery voltage and fuel metrics as invariants. <strong>Not implemented</strong> in this repository.
                     </p>
                 </div>
                 <div class="p-6 rounded-[32px] bg-slate-50 border border-slate-100 shadow-sm hover:shadow-md transition">
                     <h4 class="font-bold text-slate-900 uppercase text-xs tracking-widest mb-3 text-purple-600">Graceful Degradation</h4>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        Uses <strong>Fuzzy Logic Zones</strong> to allow deterministic heuristics. High-risk zones trigger performance scaling instead of binary shutdown.
+                        Concept: fuzzy zones for graceful degradation. <strong>Not implemented</strong> in this repository.
                     </p>
                 </div>
             </div>
@@ -211,7 +211,7 @@
         <div class="mb-16">
             <h3 class="text-4xl font-black tracking-tight mb-4 text-slate-900">The 5-Stage Validation Pipeline</h3>
             <p class="text-slate-500 max-w-2xl text-lg leading-relaxed">
-                A transparent audit trail derived from **DO-178C** and **IEC 61508** certification frameworks.
+                A roadmap that borrows the structure of DO-178C and IEC 61508. No stage is certified; the status of each is stated below.
             </p>
         </div>
 
@@ -255,19 +255,19 @@
                 <div id="step-display" class="h-full p-12 bg-slate-900 rounded-[64px] text-white flex flex-col justify-center relative overflow-hidden terminal-shadow">
                     <div class="absolute top-0 right-0 p-12 opacity-5 pointer-events-none text-9xl font-black italic uppercase">Evidence</div>
                     <div id="step-content" class="transition-opacity duration-300">
-                        <span id="step-badge" class="px-4 py-1.5 bg-emerald-500/20 text-emerald-400 text-[11px] font-black rounded-lg uppercase mb-8 inline-block tracking-[0.2em]">Stage 1: Verified</span>
+                        <span id="step-badge" class="px-4 py-1.5 bg-emerald-500/20 text-emerald-400 text-[11px] font-black rounded-lg uppercase mb-8 inline-block tracking-[0.2em]">Stage 1: Partial</span>
                         <h5 id="step-title" class="text-4xl font-black mb-6">Language & Logic Proof</h5>
                         <p id="step-desc" class="text-slate-400 text-lg leading-relaxed mb-10">
-                            Mathematical proof that the .bio metalanguage produces deterministic outcomes. We verified every state transition using Z3 SMT-Solvers to ensure side-effect freedom and MC/DC coverage.
+                            A parser and reference semantics exist for a subset of .bio. Z3 checks the invariants of the example against its state machine and proves properties of the float32 step function. No full formal semantics, no MC/DC coverage measurement.
                         </p>
                         <div class="p-6 bg-slate-800/50 rounded-2xl border border-slate-700">
-                            <p class="text-[11px] font-bold text-slate-500 uppercase mb-4 tracking-widest underline">Audit Log: MS-AUDIT-001</p>
+                            <p class="text-[11px] font-bold text-slate-500 uppercase mb-4 tracking-widest underline">Tool output (results/*.txt)</p>
                             <code class="mono text-xs text-emerald-400 block leading-loose">
-                                [SUCCESS] SMT Target: Invariant-Consistency (Z3 v4.12)<br>
-                                [SUCCESS] State-Space Coverage: 100.0% (Zero Undefined States)<br>
-                                [SUCCESS] Source: examples/drone_shield.bio<br>
-                                [SUCCESS] Timing: 0.0005 ms avg / 1M samples<br>
-                                [SIGNED] Integrity Checksum: 9a721f64...f9d16
+                                [FOUND] drone_shield_v1.bio: rf_integrity violated in state Normal<br>
+                                [PROVED] drone_shield_v2.bio: both rules, transition-first semantics<br>
+                                [PROVED] float32: NaN / inf input raises the alarm (F1a, F1b, F4)<br>
+                                [MEASURED] 0 / 100803 mismatches (RISC-V gate vs float32 model)<br>
+                                [MEASURED] 144 / 348 / 467 instructions per tick (min / median / max)
                             </code>
                         </div>
                     </div>
@@ -281,9 +281,9 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
                 <div class="max-w-2xl">
-                    <h3 class="text-5xl font-black tracking-tighter mb-6 text-slate-900">Operational Benchmarking</h3>
+                    <h3 class="text-5xl font-black tracking-tighter mb-6 text-slate-900">Illustrative scenarios</h3>
                     <p class="text-slate-500 text-lg leading-relaxed">
-                        Real-time impact analysis: MetaSpace.bio logic versus traditional probabilistic systems (EKF) in mission-critical failure scenarios.
+                        Hand-drawn illustrations of two failure scenarios. The curves are typed-in example numbers, not measurements or simulation results.
                     </p>
                 </div>
                 <div class="mt-10 md:mt-0 flex bg-slate-100 p-1 rounded-2xl border border-slate-200 shadow-inner">
@@ -303,18 +303,18 @@
                         <div class="absolute -top-4 -left-4 w-12 h-12 bg-emerald-500 rounded-2xl flex items-center justify-center text-white font-black italic shadow-lg shadow-emerald-500/20">!</div>
                         <h4 id="scen-title" class="text-2xl font-black mb-4">Aviation Integrity</h4>
                         <p id="scen-desc" class="text-slate-500 text-sm leading-relaxed mb-8">
-                            Modeling the AF447 Pitot icing event. MetaSpace.bio detects sensor divergence in < 1ms and triggers a hard-coded "Pitch-and-Power" safety gate.
+                            Illustration of the AF447 Pitot icing event: a divergence rule between redundant sensors flags the disagreement. Example data only; the AF447 example is not covered by the tools in this repository.
                         </p>
                         <div class="flex items-center space-x-3 text-emerald-600 font-black text-[11px] uppercase tracking-widest">
                             <span>Isolation Speed:</span>
-                            <span class="bg-emerald-100 px-2 py-1 rounded">Determinisitc</span>
+                            <span class="bg-emerald-100 px-2 py-1 rounded">Illustrative</span>
                         </div>
                     </div>
                     <div class="p-8 bg-slate-900 text-white rounded-[40px] flex items-center space-x-6 shadow-2xl transition hover:scale-105">
                         <div class="w-14 h-14 bg-emerald-500 rounded-2xl flex items-center justify-center font-black text-xs text-slate-900 italic">SHIELD</div>
                         <div>
                             <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Logic Response</p>
-                            <p class="text-sm font-bold leading-tight">Hard-Wired Failsafe Triggered</p>
+                            <p class="text-sm font-bold leading-tight">Example rule triggered (illustration)</p>
                         </div>
                     </div>
                 </div>
@@ -327,15 +327,12 @@
         <div class="mb-12">
             <img src="logo.png" alt="MetaSpace Logo" class="w-16 h-16 rounded-2xl mx-auto mb-6 shadow-md" onerror="this.style.display='none'">
             <div class="text-2xl font-black italic text-slate-900 mb-2">MetaSpace.bio</div>
-            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em]">Official Verification Ledger</p>
-        </div>
-        <div class="p-6 bg-slate-50 rounded-3xl inline-block mb-10 border border-slate-200 shadow-inner">
-            <code class="mono text-[10px] md:text-xs text-slate-500 break-all px-4 tracking-tighter">SHA256: 9a721f6436caacfbd73f4303aed7465b3f53609ffd2129c445279d9f5cdf9d16</code>
+            <p class="text-[11px] font-bold text-slate-400 uppercase tracking-[0.4em]">Verification notes</p>
         </div>
         <p class="text-xs text-slate-400 max-w-lg mx-auto leading-relaxed uppercase tracking-wider font-semibold">
             &copy; 2025 Citrom Méda LTD | LemonScript Laboratory. <br>
             Patent Pending (OSIM 20251221-2230). <br>
-            Mathematics is the ultimate firewall.
+            Research prototype. See CHANGES.md and docs/validation/.
         </p>
     </footer>
 
@@ -343,33 +340,33 @@
         const steps = {
             1: {
                 title: "Formal Semantics Proof",
-                badge: "Stage 1: Verified",
-                desc: "Mathematical proof that the MetaSpace.bio metalanguage produces deterministic outcomes. We utilized SMT-Solvers (Z3) to verify that every state transition is safe, excluding side effects.",
-                log: "[SUCCESS] SMT Target: Invariant-Consistency (Z3 v4.12)\n[SUCCESS] State-Space Coverage: 100.0% (Zero Undefined States)\n[SUCCESS] Source: examples/drone_shield.bio\n[SUCCESS] Timing Determinism: 0.0005 ms avg / 1M samples\n[SIGNED] Integrity Checksum: E5B24A5E...FEE53"
+                badge: "Stage 1: Partial",
+                desc: "A parser and reference semantics exist for a subset of .bio. Z3 checks the invariants of the example against its state machine and proves properties of the float32 step function. No full formal semantics, no MC/DC coverage measurement.",
+                log: "[FOUND] drone_shield_v1.bio: rf_integrity violated in state Normal\n[PROVED] drone_shield_v2.bio: both rules, transition-first semantics\n[PROVED] float32: NaN / inf input raises the alarm (F1a, F1b, F4)\n[MEASURED] 0 / 100803 mismatches (RISC-V gate vs float32 model)\n[MEASURED] 144 / 348 / 467 instructions per tick (min / median / max)"
             },
             2: {
                 title: "Tool Qualification & Synthesis",
-                badge: "Stage 2: In Progress",
-                desc: "Verification of the MetaSpace.bio Compiler v2.0 synthesis engine. Proving that the mapping from .bio to VHDL/C++ introduces zero logic errors (DO-178C TQL-3 alignment).",
-                log: "[OK] VHDL Logic Mapping verified.\n[OK] Binary-to-Model Traceability integrated.\n[IN PROGRESS] Tool Qualification: examples/spoofing_simulation.py\n[IN PROGRESS] Formal Logic Minimization active."
+                badge: "Stage 2: Prototype",
+                desc: "A generator produces a no_std Rust gate from the specification. It is checked by differential testing against independent models; it is not a qualified tool, and there is no VHDL generation in this repository.",
+                log: "[MEASURED] generated gate == float32 model on 100803 vectors\n[MEASURED] generated gate == real-valued spec outside the rounding band\n[NOT DONE] tool qualification (DO-330)\n[NOT DONE] VHDL / FPGA synthesis"
             },
             3: {
                 title: "Safety Standard Alignment",
-                badge: "Stage 3: Ready",
-                desc: "Integration with industry safety standards. Hazard & Risk Analysis (HARA) and FMEA reports mapped to .bio invariants for SIL-3 high-integrity requirements.",
-                log: "[INFO] HARA Report MS-HARA-01 finalized.\n[INFO] FMEA critical paths mapped to invariants.\n[INFO] SIL-3 Certification Roadmap active.\n[INFO] Traceability Matrix: examples/af447_speed_shield.bio"
+                badge: "Stage 3: Draft",
+                desc: "Hazard analysis (HARA) and FMEA drafts exist, prepared by the authors and not independently reviewed. No safety integrity level has been assessed.",
+                log: "[DRAFT] docs/validation/HARA_REPORT.md\n[DRAFT] docs/validation/FMEA_REPORT.md\n[NOT DONE] independent review\n[NOT DONE] SIL assessment"
             },
             4: {
                 title: "Military Field Validation",
-                badge: "Stage 4: Planned",
+                badge: "Stage 4: Not done",
                 desc: "Field trials under active GNSS Spoofing and Jamming conditions (Jammertest 2025 standards). Benchmarking against NATO C-UAS security requirements.",
-                log: "[SCHEDULED] GNSS Spoofing Field Trial - 2025 Q1.\n[SCHEDULED] Blue UAS Compliance Audit Initiation.\n[SCHEDULED] NATO STANAG 4586 Interoperability Test."
+                log: "[NOT DONE] software-in-the-loop test\n[NOT DONE] hardware-in-the-loop test\n[NOT DONE] field trial with spoofing"
             },
             5: {
                 title: "Operational Assurance Case",
-                badge: "Stage 5: Planned",
+                badge: "Stage 5: Draft",
                 desc: "Finalizing the Assurance Case using Goal Structuring Notation (GSN). Linking all mathematical evidence to operational field data and continuous feedback loops.",
-                log: "[PREPARATION] Assurance Case Skeleton built.\n[PREPARATION] Operational Data-Loop Module specified.\n[PREPARATION] Continuous Certification Pipeline design."
+                log: "[DRAFT] docs/validation/ASSURANCE_CASE.md (open gaps listed)\n[NOT DONE] operational data loop"
             }
         };
 
@@ -466,15 +463,15 @@
                 btnFin.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
                 btnFin.classList.add('text-slate-400');
                 title.innerText = "Aviation Integrity";
-                desc.innerText = "Modeling the AF447 Pitot icing event. MetaSpace.bio detects sensor divergence in < 1ms and triggers a hard-coded 'Pitch-and-Power' safety gate.";
+                desc.innerText = "Illustration of the AF447 Pitot icing event: a divergence rule between redundant sensors flags the disagreement. Example data only; the AF447 example is not covered by the tools in this repository.";
                 benchmarkChart.data = getAirData();
                 benchmarkChart.options.scales.y.title.text = 'Airspeed (Knots)';
             } else {
                 btnFin.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
                 btnAir.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
                 btnAir.classList.add('text-slate-400');
-                title.innerText = "Financial Protection";
-                desc.innerText = "Modeling the Knight Capital 2012 glitch. A rogue trading algorithm starts exhausting capital at millions/second. MetaSpace.bio stops the flow at the packet level upon limit violation.";
+                title.innerText = "Financial limit (illustration)";
+                desc.innerText = "Illustration of the Knight Capital 2012 glitch: an exposure limit halts the flow when it is exceeded. Example data only; not covered by the tools in this repository.";
                 benchmarkChart.data = getFinData();
                 benchmarkChart.options.scales.y.title.text = 'Exposure ($ Millions)';
             }

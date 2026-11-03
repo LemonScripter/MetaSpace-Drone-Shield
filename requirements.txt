@@ -1,6 +1,7 @@
-numpy
-matplotlib
 z3-solver
-pymavlink
-flask
+numpy
+unicorn
+pyelftools
+Flask
 flask-cors
+matplotlib

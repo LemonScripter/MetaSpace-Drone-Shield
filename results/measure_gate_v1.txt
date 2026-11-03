@@ -1,0 +1,12 @@
+gate ../build/gate_v1.elf | numpy model v1 | .text 12690 bytes | 100803 test vectors
+(A) emulated RISC-V gate vs independent f32 model: 0 mismatches in 100803  -> exact match
+(B) gate vs real-valued spec semantics (float64), outside the 2e-6 band around 20 m and 50 m: 0 differences in 74410 finite vectors  -> agree
+(C) from state Normal, harmless inputs except one invalid value:
+      gps_x = NaN    -> next state 0, alarm 0   (NO ALARM (fail-open))
+      gps_x = +inf   -> next state 1, alarm 1   (ALARM)
+      ins_y = NaN    -> next state 0, alarm 0   (NO ALARM (fail-open))
+      rf = NaN       -> next state 0, alarm 0   (NO ALARM (fail-open))
+      rf = +inf      -> next state 0, alarm 0   (NO ALARM (fail-open))
+(D) instructions per tick over 4032 vectors: min 141, median 340, max 439  (MEASURED, emulator)
+    median tick: 340 - 425 cycles = 2.1 - 2.7 microseconds at 160 MHz  (ESTIMATED: cycles/instruction assumed, see TECHNICAL notes)
+    worst  tick: 439 - 535 cycles = 2.7 - 3.3 microseconds at 160 MHz  (ESTIMATED: cycles/instruction assumed, see TECHNICAL notes)
